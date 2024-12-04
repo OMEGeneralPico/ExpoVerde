@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Mapa, Carrusel y Estilo Mejorado</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Leaflet CSS for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        /* Skeleton loader */
+        .skeleton {
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            width: 100%;
+            height: 1.5em;
+            margin-bottom: 10px;
+            animation: pulse 1.5s infinite;
+        }
+        
+        /* Skeleton effect */
+        @keyframes pulse {
+            0% {
+                background-color: #e0e0e0;
+            }
+            50% {
+                background-color: #f0f0f0;
+            }
+            100% {
+                background-color: #e0e0e0;
+            }
+        }
+
+        /* Estilo del carrusel */
+        .carousel-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        /* Estilo del mapa */
+        #map {
+            height: 200px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        /* Estilo del QR */
+        .qr-code {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background-color: black;
+            padding: 10px;
+        }
+
+        /* Iconos de contacto */
+        .contact-icon {
+            margin-right: 10px;
+        }
+
+        /* Estilo general */
+        .card {
+            position: relative;
+            padding-bottom: 60px;
+        }
+
+        /* Cambia el color de fondo del navbar */
+        .bg-custom {
+            background-color: #119A79 !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Mi Página</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Emprendedores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mapa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Eventos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Skeleton loader mientras se cargan los negocios -->
+    <div class="container mt-5" id="negocios">
+        <h3>Negocios</h3>
+        <img src="../imagenes/charla1.png" alt="Expo Verde"> <!-- Cambia por la URL de tu logo -->
+        <div class="skeleton" style="width: 50%;"></div>
+        <div class="skeleton"></div>
+        <div class="skeleton" style="width: 75%;"></div>
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+    </div>
+   
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Sobre Nosotros</h5>
+                    <p>Aquí puedes colocar una breve descripción de tu empresa o proyecto.</p>ç
+                    
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Enlaces Útiles</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#" class="text-dark">Inicio</a></li>
+                        <li><a href="#" class="text-dark">Sobre Nosotros</a></li>
+                        <li><a href="#" class="text-dark">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Síguenos</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#" class="text-dark">Facebook</a></li>
+                        <li><a href="#" class="text-dark">Twitter</a></li>
+                        <li><a href="#" class="text-dark">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2024 Copyright:
+            <a class="text-dark" href="#">MiPágina.com</a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Leaflet JS para el mapa -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Script para cargar el JSON y mostrar los datos -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener el parámetro 'numero' de la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const indice = parseInt(urlParams.get('numero'));
+        
+            // Verificar que el índice sea un número válido
+            if (!isNaN(indice)) {
+                // Cargar el JSON
+                fetch('csvjson.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const negocio = data[indice];
+        
+                        // Verificar si el negocio existe en el índice proporcionado
+                        if (negocio) {
+                            const contenedor = document.getElementById('negocios');
+                            contenedor.innerHTML = ''; // Limpiar el skeleton
+        
+                            // Extraer la información
+                            const telefono = negocio["Columna 7"] || 'No disponible';
+                            const nombreFantasia = negocio["Columna 4"] || 'Nombre no disponible';
+                            const nombreReal = negocio["Columna 3"] || 'Nombre real no disponible';
+                            const ubicacion = negocio["Columna 12"] || 'Ubicación no disponible';
+                            const instagram = negocio["Instagram"] ? `<li><i class="fab fa-instagram contact-icon"></i> <a href="${negocio["Instagram"]}" target="_blank">Instagram</a></li>` : '';
+                            const facebook = negocio["Facebook"] ? `<li><i class="fab fa-facebook contact-icon"></i> <a href="${negocio["Facebook"]}" target="_blank">Facebook</a></li>` : '';
+        
+                            // Ruta base sin extensión
+                            const basePath = `../imagenes/${negocio["Columna 1"]}`;
+        
+                            // Función para probar extensiones
+                        // Función para probar extensiones
+function cargarImagen() {
+    const extensiones = ['.png', '.jpg', '.jpeg', '.jfif'];
+    let index = 0;
+
+    function cargarSiguiente() {
+        if (index < extensiones.length) {
+            const img = new Image();
+            img.src = `${basePath}${extensiones[index]}`;
+            img.onload = () => {
+                // Mostrar la imagen cuando cargue con éxito
+                document.getElementById('imagen-negocio').src = img.src;
+            };
+            img.onerror = () => {
+                // Aumentar el índice y cargar la siguiente imagen
+                index++;
+                cargarSiguiente();
+            };
+        } else {
+            // Cargar imagen por defecto si ninguna de las extensiones existe
+            document.getElementById('imagen-negocio').src = '../imagenes/default.png';
+        }
+    }
+
+    // Iniciar la carga de la primera imagen
+    cargarSiguiente();
+}
+
+                            // Construir el HTML con los datos y una imagen contenedora
+                            const negocioHTML = `
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5>${nombreFantasia}</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <img id="imagen-negocio" class="d-block w-100 mb-3" alt="Imagen del negocio">
+                                        <p><strong>Nombre real:</strong> ${nombreReal}</p>
+                                        <p><strong>Ubicación:</strong> ${ubicacion}</p>
+                                        <p><strong>Contacto:</strong></p>
+                                        <ul>
+                                            <li><i class="fas fa-phone contact-icon"></i> ${telefono}</li>
+                                            ${instagram}
+                                            ${facebook}
+                                        </ul>
+                                    </div>
+                                </div>
+                            `;
+                            contenedor.innerHTML = negocioHTML;
+        
+                            // Intentar cargar la imagen con las extensiones
+                            cargarImagen();
+                        } else {
+                            contenedor.innerHTML = '<p>Negocio no encontrado.</p>';
+                        }
+                    })
+                    .catch(error => console.error('Error al cargar el JSON:', error));
+            } else {
+                document.getElementById('negocios').innerHTML = '<p>Índice inválido.</p>';
+            }
+        });
+        </script>
+        
+</body>
+</html>
