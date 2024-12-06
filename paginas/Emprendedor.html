@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,15 +22,17 @@
             margin-bottom: 10px;
             animation: pulse 1.5s infinite;
         }
-        
+
         /* Skeleton effect */
         @keyframes pulse {
             0% {
                 background-color: #e0e0e0;
             }
+
             50% {
                 background-color: #f0f0f0;
             }
+
             100% {
                 background-color: #e0e0e0;
             }
@@ -71,16 +74,18 @@
 
         /* Cambia el color de fondo del navbar */
         .bg-custom {
-            background-color: #119A79 !important;
+            background-color: #6d105c !important;
         }
     </style>
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-custom">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Mi Página</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -109,7 +114,7 @@
         <div class="skeleton"></div>
         <div class="skeleton"></div>
     </div>
-   
+
     <!-- Footer -->
     <footer class="bg-light text-center text-lg-start">
         <div class="container p-4">
@@ -117,7 +122,7 @@
                 <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Sobre Nosotros</h5>
                     <p>Aquí puedes colocar una breve descripción de tu empresa o proyecto.</p>ç
-                    
+
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Enlaces Útiles</h5>
@@ -151,11 +156,11 @@
 
     <!-- Script para cargar el JSON y mostrar los datos -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             // Obtener el parámetro 'numero' de la URL
             const urlParams = new URLSearchParams(window.location.search);
             const indice = parseInt(urlParams.get('numero'));
-        
+
             // Verificar que el índice sea un número válido
             if (!isNaN(indice)) {
                 // Cargar el JSON
@@ -163,12 +168,12 @@
                     .then(response => response.json())
                     .then(data => {
                         const negocio = data[indice];
-        
+
                         // Verificar si el negocio existe en el índice proporcionado
                         if (negocio) {
                             const contenedor = document.getElementById('negocios');
                             contenedor.innerHTML = ''; // Limpiar el skeleton
-        
+
                             // Extraer la información
                             const telefono = negocio["Columna 7"] || 'No disponible';
                             const nombreFantasia = negocio["Columna 4"] || 'Nombre no disponible';
@@ -176,38 +181,38 @@
                             const ubicacion = negocio["Columna 12"] || 'Ubicación no disponible';
                             const instagram = negocio["Instagram"] ? `<li><i class="fab fa-instagram contact-icon"></i> <a href="${negocio["Instagram"]}" target="_blank">Instagram</a></li>` : '';
                             const facebook = negocio["Facebook"] ? `<li><i class="fab fa-facebook contact-icon"></i> <a href="${negocio["Facebook"]}" target="_blank">Facebook</a></li>` : '';
-        
+
                             // Ruta base sin extensión
                             const basePath = `../imagenes/${negocio["Columna 1"]}`;
-        
+
                             // Función para probar extensiones
-                        // Función para probar extensiones
-function cargarImagen() {
-    const extensiones = ['.png', '.jpg', '.jpeg', '.jfif'];
-    let index = 0;
+                            // Función para probar extensiones
+                            function cargarImagen() {
+                                const extensiones = ['.png', '.jpg', '.jpeg', '.jfif'];
+                                let index = 0;
 
-    function cargarSiguiente() {
-        if (index < extensiones.length) {
-            const img = new Image();
-            img.src = `${basePath}${extensiones[index]}`;
-            img.onload = () => {
-                // Mostrar la imagen cuando cargue con éxito
-                document.getElementById('imagen-negocio').src = img.src;
-            };
-            img.onerror = () => {
-                // Aumentar el índice y cargar la siguiente imagen
-                index++;
-                cargarSiguiente();
-            };
-        } else {
-            // Cargar imagen por defecto si ninguna de las extensiones existe
-            document.getElementById('imagen-negocio').src = '../imagenes/default.png';
-        }
-    }
+                                function cargarSiguiente() {
+                                    if (index < extensiones.length) {
+                                        const img = new Image();
+                                        img.src = `${basePath}${extensiones[index]}`;
+                                        img.onload = () => {
+                                            // Mostrar la imagen cuando cargue con éxito
+                                            document.getElementById('imagen-negocio').src = img.src;
+                                        };
+                                        img.onerror = () => {
+                                            // Aumentar el índice y cargar la siguiente imagen
+                                            index++;
+                                            cargarSiguiente();
+                                        };
+                                    } else {
+                                        // Cargar imagen por defecto si ninguna de las extensiones existe
+                                        document.getElementById('imagen-negocio').src = '../imagenes/default.png';
+                                    }
+                                }
 
-    // Iniciar la carga de la primera imagen
-    cargarSiguiente();
-}
+                                // Iniciar la carga de la primera imagen
+                                cargarSiguiente();
+                            }
 
                             // Construir el HTML con los datos y una imagen contenedora
                             const negocioHTML = `
@@ -229,7 +234,7 @@ function cargarImagen() {
                                 </div>
                             `;
                             contenedor.innerHTML = negocioHTML;
-        
+
                             // Intentar cargar la imagen con las extensiones
                             cargarImagen();
                         } else {
@@ -241,7 +246,8 @@ function cargarImagen() {
                 document.getElementById('negocios').innerHTML = '<p>Índice inválido.</p>';
             }
         });
-        </script>
-        
+    </script>
+
 </body>
+
 </html>

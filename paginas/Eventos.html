@@ -4,11 +4,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Eventos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Leaflet CSS para el mapa -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        /* Estilo del mapa */
+        #map {
+            height: 400px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: whitesmoke;
+            text-decoration: none;
+            /* Quitar subrayado */
+
+            font-size: inherit;
+            /* Heredar tamaño de letra */
+        }
+
+        object {
+            padding-bottom: 0px;
+            margin-bottom: 0px;
+        }
+
+        /* Cambia el color de fondo del navbar */
+        .bg-custom {
+            background-color: #6d105c !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            /* Color blanco para los enlaces */
+        }
+
+        /* Cambiar el color del enlace al pasar el mouse */
+        .navbar-nav .nav-link:hover {
+            color: #f0f0f0 !important;
+            /* Color más claro al hacer hover */
+        }
+
+        body {
+            background-color: #2C0926;
+        }
+
+        .container {
+            color: #119A79;
+        }
+
+        /* Personalizar el navbar para que los botones sean anchos en pantallas pequeñas */
+        @media (max-width: 768px) {
+            .navbar-nav .nav-link {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+    <style>
+        /* Mostrar este div solo en modo vertical (portrait) */
+        .solo-portrait {
+            display: block;
+            background-color: lightblue;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Mostrar este div solo en modo horizontal (landscape) */
+        .solo-landscape {
+            display: none;
+            /* Ocultar por defecto */
+
+
+            text-align: center;
+        }
+
+        /* Si la pantalla está en modo vertical */
+        @media (orientation: portrait) {
+            .solo-landscape {
+                display: none;
+            }
+
+            .solo-portrait {
+                display: block;
+            }
+        }
+
+        /* Si la pantalla está en modo horizontal */
+        @media (orientation: landscape) {
+            .solo-landscape {
+                display: block;
+            }
+
+            .solo-portrait {
+                display: none;
+            }
+
+
+        }
+    </style>
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+        <div class="container-fluid ">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../imagenes/ferialogo.png" width="100px" alt="Expo Verde">
+                <!-- Cambia por la URL de tu logo -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="../paginas/Mapa.html">Emprendedores</a>
+                    </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="../paginas/Eventos.html">Eventos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <object data="../imagenes/Eventos/inicio.svg" id="" width="100%" height="100%"></object>
+    <object data="../imagenes/Eventos/payasos.svg" id="payasos" width="100%" height="100%"></object>
+    <object data="../imagenes/Eventos/5pa2.svg" type="image/svg+xml" id="5pa2" width="100%" height="100%"></object>
+    <object data="../imagenes/Eventos/premios.svg" type="image/svg+xml" id="" width="100%" height="100%"></object>
+    <object data="../imagenes/Eventos/ultimo.svg" type="image/svg+xml" id="alphasvg" width="100%"
+        height="100%"></object>
+
+    </svg>
+
+    <script>
+        // Seleccionar el elemento del botón por su ID
+        var a = document.getElementById("alphasvg");
+
+        // It's important to add an load event listener to the object,
+        // as it will load the svg doc asynchronously
+        a.addEventListener("load", function () {
+
+            // get the inner DOM of alpha.svg
+            var svgDoc = a.contentDocument;
+            // get the inner element by id
+
+            var delta = svgDoc.getElementById("BotonTamo");
+            // add behaviour
+            delta.addEventListener("click", function () {
+                window.open('https://www.youtube.com/@TamoReady-cv9rb', '_blank');
+            }, false);
+        }, false);
+        var b = document.getElementById("5pa2");
+
+        // It's important to add an load event listener to the object,
+        // as it will load the svg doc asynchronously
+        b.addEventListener("load", function () {
+
+            // get the inner DOM of alpha.svg
+            var svgDoc = b.contentDocument;
+            // get the inner element by id
+
+            var delta = svgDoc.getElementById("5pa2");
+            // add behaviour
+            delta.addEventListener("click", function () {
+
+                window.open('https://www.instagram.com/5pa2.ok/?igsh=MWt6NmU5ZHgzdGN3Zw%3D%3D', '_blank');
+
+            }, false);
+        }, false);
+        var c = document.getElementById("payasos");
+
+        // It's important to add an load event listener to the object,
+        // as it will load the svg doc asynchronously
+        c.addEventListener("load", function () {
+
+            // get the inner DOM of alpha.svg
+            var svgDoc = c.contentDocument;
+            // get the inner element by id
+
+            var delta = svgDoc.getElementById("Payasitos");
+            // add behaviour
+            delta.addEventListener("click", function () {
+                window.open('https://www.instagram.com/lamaletacachivaches/', '_blank');
+            }, false);
+        }, false);
+    </script>
 </body>
 
 </html>l
