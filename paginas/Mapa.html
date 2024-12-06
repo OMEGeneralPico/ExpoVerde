@@ -487,6 +487,52 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
     <!-- Script para cargar el mapa y leer el JSON -->
+
+    <script>
+        function centrarEnMapa(id) {
+            const svg = document.getElementById('mySVG');
+            const elemento = svg.querySelector(`[id="${id}"]`); // Busca el elemento en el mapa por su ID
+            if (!elemento) {
+                alert('Elemento no encontrado en el mapa');
+                return;
+            }
+
+            // Ajustar el viewBox para centrar en el elemento
+            const bbox = elemento.getBBox(); // Obtiene las dimensiones del elemento
+            const padding = 10; // Espacio extra alrededor del elemento
+            const viewBox = `${bbox.x - padding} ${bbox.y - padding} ${bbox.width + padding * 2} ${bbox.height + padding * 2}`;
+            svg.setAttribute('viewBox', viewBox);
+
+            // Resaltar el elemento temporalmente
+            elemento.setAttribute('fill', 'yellow');
+            setTimeout(() => elemento.setAttribute('fill', ''), 1000);
+        }
+
+
+        // Asocia esta funcionalidad con los enlaces de los emprendedores
+        document.querySelectorAll('.emprendedor-link').forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                const id = event.target.dataset.columna1; // ID del elemento en la columna 1
+                centrarEnMapa(id);
+            });
+        });
+    </script>
+    <script>
+        document.getElementById('mySVG').addEventListener('click', (event) => {
+            const id = event.target.id; // ID del elemento clicado en el mapa
+            if (!id || isNaN(id) || id < 1 || id > 43) return; // Solo elementos con ID entre 1 y 43
+
+            // Busca el enlace del emprendedor correspondiente
+            const link = document.querySelector(`.emprendedor-link[data-columna1="${id}"]`);
+            if (link) {
+                link.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                link.style.color = 'red'; // Resalta temporalmente
+                setTimeout(() => link.style.color = 'blue', 1000); // Vuelve al color original
+            }
+        });
+    </script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Inicialización del mapa centrado en General Pico, La Pampa, Argentina
@@ -500,22 +546,32 @@
                     // Iterar sobre los datos del JSON y agregarlos a la tabla
                     data.forEach(negocio => {
                         const tieneRedes = negocio["Foto"] || negocio["Instagram"] || negocio["Facebook"];
-                        const numero = negocio["Columna 2"] - 1;  // Asumimos que este es el número que quieres pasar
+                        const numero = negocio["Columna 1"]; // El ID que se usará para vincular con el mapa
                         const nombre = tieneRedes ?
-                            `<a href="Emprendedor.html?numero=${numero}">${negocio["Nombre del emprendimiento"]}</a>` :
-                            negocio["Nombre del emprendimiento"];
+                            `<a href="#" class="emprendedor-link" data-columna1="${numero}">${negocio["Nombre del emprendimiento"]}</a>` :
+                            `<span>${negocio["Nombre del emprendimiento"]}</span>`;
 
                         const fila = `
-                            <tr>
-                                <td>${nombre}</td>
-                                <td>${negocio["Nombre y Apellido"]}</td>
-                                <td>${negocio["Actividad"]}</td>
-                            </tr>
-                        `;
+                <tr>
+                    <td>${nombre}</td>
+                    <td>${negocio["Nombre y Apellido"]}</td>
+                    <td>${negocio["Actividad"]}</td>
+                </tr>
+            `;
                         tabla.innerHTML += fila;
+                    });
+
+                    // Agregar eventos después de crear la tabla
+                    document.querySelectorAll('.emprendedor-link').forEach(link => {
+                        link.addEventListener('click', event => {
+                            event.preventDefault(); // Prevenir comportamiento predeterminado del enlace
+                            const id = link.getAttribute('data-columna1'); // Obtén el ID del mapa
+                            centrarEnMapa(id); // Llama a la función para centrar en el mapa
+                        });
                     });
                 })
                 .catch(error => console.error('Error al cargar el JSON:', error));
+
         });
     </script>
     <script>
