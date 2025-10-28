@@ -2,252 +2,281 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página con Mapa, Carrusel y Estilo Mejorado</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Leaflet CSS for maps -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficha del Emprendedor - Expo Verde 2025</title>
 
-    <style>
-        /* Skeleton loader */
-        .skeleton {
-            background-color: #e0e0e0;
-            border-radius: 4px;
-            width: 100%;
-            height: 1.5em;
-            margin-bottom: 10px;
-            animation: pulse 1.5s infinite;
-        }
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        /* Skeleton effect */
-        @keyframes pulse {
-            0% {
-                background-color: #e0e0e0;
-            }
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
-            50% {
-                background-color: #f0f0f0;
-            }
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-            100% {
-                background-color: #e0e0e0;
-            }
-        }
+  <style>
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+    }
 
-        /* Estilo del carrusel */
-        .carousel-item img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-        }
+    .bg-custom {
+      background-color: #6d105c !important;
+    }
 
-        /* Estilo del mapa */
-        #map {
-            height: 200px;
-            width: 100%;
-            margin-bottom: 15px;
-        }
+    .navbar-nav .nav-link {
+      color: white !important;
+    }
 
-        /* Estilo del QR */
-        .qr-code {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            background-color: black;
-            padding: 10px;
-        }
+    .navbar-nav .nav-link:hover {
+      color: #f0f0f0 !important;
+    }
 
-        /* Iconos de contacto */
-        .contact-icon {
-            margin-right: 10px;
-        }
+    .perfil-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin: auto;
+      transition: all 0.3s ease;
+      max-width: 900px;
+    }
 
-        /* Estilo general */
-        .card {
-            position: relative;
-            padding-bottom: 60px;
-        }
+    .perfil-card:hover {
+      transform: translateY(-3px);
+    }
 
-        /* Cambia el color de fondo del navbar */
-        .bg-custom {
-            background-color: #6d105c !important;
-        }
-    </style>
+    .perfil-header {
+      background-color: #6d105c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .perfil-header h2 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    .perfil-body {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .perfil-imagen {
+      flex: 1 1 250px;
+      max-width: 250px;
+      text-align: center;
+    }
+
+    .perfil-imagen img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .perfil-imagen .placeholder {
+      width: 250px;
+      height: 250px;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ccc;
+      font-size: 2rem;
+    }
+
+    .perfil-detalles {
+      flex: 2 1 400px;
+    }
+
+    .perfil-detalles h4 {
+      color: #6d105c;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+
+    .perfil-detalles p {
+      margin: 6px 0;
+      font-size: 1rem;
+    }
+
+    .btn-contacto {
+      background-color: #6d105c;
+      color: white;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      margin-right: 10px;
+    }
+
+    .btn-contacto:hover {
+      background-color: #5a0c4d;
+    }
+
+    #map {
+      height: 250px;
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 20px;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .perfil-body {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .perfil-imagen img,
+      .perfil-imagen .placeholder {
+        max-width: 200px;
+        height: auto;
+      }
+
+      .perfil-card {
+        margin: 10px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Mi Página</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Emprendedores</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Mapa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Eventos</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Skeleton loader mientras se cargan los negocios -->
-    <div class="container mt-5" id="negocios">
-        <h3>Negocios</h3>
-        <img src="../imagenes/charla1.png" alt="Expo Verde"> <!-- Cambia por la URL de tu logo -->
-        <div class="skeleton" style="width: 50%;"></div>
-        <div class="skeleton"></div>
-        <div class="skeleton" style="width: 75%;"></div>
-        <div class="skeleton"></div>
-        <div class="skeleton"></div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../imagenes/ferialogo.png" width="100px" alt="Expo Verde">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="../paginas/Mapa.html" class="nav-link">Emprendedores</a></li>
+          <li class="nav-item"><a href="../paginas/Eventos.html" class="nav-link">Eventos</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <!-- Footer -->
-    <footer class="bg-light text-center text-lg-start">
-        <div class="container p-4">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Sobre Nosotros</h5>
-                    <p>Aquí puedes colocar una breve descripción de tu empresa o proyecto.</p>ç
+  <div class="container my-5">
+    <div id="perfil-container" class="perfil-card">
+      <div class="perfil-header">
+        <h2>Cargando datos...</h2>
+      </div>
+      <div class="perfil-body d-none">
+        <div class="perfil-imagen"></div>
+        <div class="perfil-detalles"></div>
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
 
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Enlaces Útiles</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li><a href="#" class="text-dark">Inicio</a></li>
-                        <li><a href="#" class="text-dark">Sobre Nosotros</a></li>
-                        <li><a href="#" class="text-dark">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Síguenos</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li><a href="#" class="text-dark">Facebook</a></li>
-                        <li><a href="#" class="text-dark">Twitter</a></li>
-                        <li><a href="#" class="text-dark">Instagram</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2024 Copyright:
-            <a class="text-dark" href="#">MiPágina.com</a>
-        </div>
-    </footer>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const numero = urlParams.get('numero');
 
-    <!-- Leaflet JS para el mapa -->
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+      if (!numero) {
+        document.querySelector('.perfil-header h2').textContent = "No se especificó ningún emprendedor.";
+        return;
+      }
 
-    <!-- Script para cargar el JSON y mostrar los datos -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Obtener el parámetro 'numero' de la URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const indice = parseInt(urlParams.get('numero'));
+      fetch('json-2025.json')
+        .then(res => res.json())
+        .then(data => {
+          const emprendedor = data.find(e => e["Column 16"] == numero);
 
-            // Verificar que el índice sea un número válido
-            if (!isNaN(indice)) {
-                // Cargar el JSON
-                fetch('csvjson.json')
-                    .then(response => response.json())
-                    .then(data => {
-                        const negocio = data[indice];
+          if (!emprendedor) {
+            document.querySelector('.perfil-header h2').textContent = "Emprendedor no encontrado.";
+            return;
+          }
 
-                        // Verificar si el negocio existe en el índice proporcionado
-                        if (negocio) {
-                            const contenedor = document.getElementById('negocios');
-                            contenedor.innerHTML = ''; // Limpiar el skeleton
+          const header = document.querySelector('.perfil-header h2');
+          const imagenCont = document.querySelector('.perfil-imagen');
+          const detalles = document.querySelector('.perfil-detalles');
+          const body = document.querySelector('.perfil-body');
+          const mapa = document.getElementById("map");
 
-                            // Extraer la información
-                            const telefono = negocio["Columna 7"] || 'No disponible';
-                            const nombreFantasia = negocio["Columna 4"] || 'Nombre no disponible';
-                            const nombreReal = negocio["Columna 3"] || 'Nombre real no disponible';
-                            const ubicacion = negocio["Columna 12"] || 'Ubicación no disponible';
-                            const instagram = negocio["Instagram"] ? `<li><i class="fab fa-instagram contact-icon"></i> <a href="${negocio["Instagram"]}" target="_blank">Instagram</a></li>` : '';
-                            const facebook = negocio["Facebook"] ? `<li><i class="fab fa-facebook contact-icon"></i> <a href="${negocio["Facebook"]}" target="_blank">Facebook</a></li>` : '';
+          // Imagen
+          const imgPath = `../imagenes/${emprendedor["Column 16"]}.png`;
+          const img = new Image();
+          img.src = imgPath;
+          img.onload = () => imagenCont.appendChild(img);
+          img.onerror = () => {
+            const placeholder = document.createElement('div');
+            placeholder.classList.add('placeholder');
+            placeholder.innerHTML = '<i class="fas fa-leaf"></i>';
+            imagenCont.appendChild(placeholder);
+          };
 
-                            // Ruta base sin extensión
-                            const basePath = `../imagenes/${negocio["Columna 1"]}`;
+          // Header
+          header.textContent = emprendedor["Nombre del emprendimiento"] || "Emprendimiento sin nombre";
 
-                            // Función para probar extensiones
-                            // Función para probar extensiones
-                            function cargarImagen() {
-                                const extensiones = ['.png', '.jpg', '.jpeg', '.jfif'];
-                                let index = 0;
-
-                                function cargarSiguiente() {
-                                    if (index < extensiones.length) {
-                                        const img = new Image();
-                                        img.src = `${basePath}${extensiones[index]}`;
-                                        img.onload = () => {
-                                            // Mostrar la imagen cuando cargue con éxito
-                                            document.getElementById('imagen-negocio').src = img.src;
-                                        };
-                                        img.onerror = () => {
-                                            // Aumentar el índice y cargar la siguiente imagen
-                                            index++;
-                                            cargarSiguiente();
-                                        };
-                                    } else {
-                                        // Cargar imagen por defecto si ninguna de las extensiones existe
-                                        document.getElementById('imagen-negocio').src = '../imagenes/default.png';
-                                    }
-                                }
-
-                                // Iniciar la carga de la primera imagen
-                                cargarSiguiente();
-                            }
-
-                            // Construir el HTML con los datos y una imagen contenedora
-                            const negocioHTML = `
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <h5>${nombreFantasia}</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <img id="imagen-negocio" class="d-block w-100 mb-3" alt="Imagen del negocio">
-                                        <p><strong>Nombre real:</strong> ${nombreReal}</p>
-                                        <p><strong>Ubicación:</strong> ${ubicacion}</p>
-                                        <p><strong>Contacto:</strong></p>
-                                        <ul>
-                                            <li><i class="fas fa-phone contact-icon"></i> ${telefono}</li>
-                                            ${instagram}
-                                            ${facebook}
-                                        </ul>
-                                    </div>
-                                </div>
-                            `;
-                            contenedor.innerHTML = negocioHTML;
-
-                            // Intentar cargar la imagen con las extensiones
-                            cargarImagen();
-                        } else {
-                            contenedor.innerHTML = '<p>Negocio no encontrado.</p>';
-                        }
-                    })
-                    .catch(error => console.error('Error al cargar el JSON:', error));
-            } else {
-                document.getElementById('negocios').innerHTML = '<p>Índice inválido.</p>';
+          // Redes Sociales (nuevo formato)
+          let botonesRedes = '';
+          if (typeof emprendedor["Redes Sociales"] === "object") {
+            const redes = emprendedor["Redes Sociales"];
+            if (redes["Instagram"]) {
+              botonesRedes += `<a href="${redes["Instagram"]}" target="_blank" class="btn btn-contacto"><i class="fab fa-instagram"></i> Instagram</a>`;
             }
+            if (redes["Facebook"]) {
+              botonesRedes += `<a href="${redes["Facebook"]}" target="_blank" class="btn btn-contacto"><i class="fab fa-facebook"></i> Facebook</a>`;
+            }
+          }
+
+          // Teléfono
+          const telefono = emprendedor["Teléfono del emprendimiento"] || "";
+          const telLimpio = telefono.toString().replace(/\D/g, "");
+          const botonesTelefono = telefono ? `
+            <a href="tel:${telLimpio}" class="btn btn-contacto"><i class="fas fa-phone"></i> Llamar</a>
+            <a href="https://wa.me/${telLimpio}" target="_blank" class="btn btn-contacto"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+          ` : "";
+
+          // Info principal
+          detalles.innerHTML = `
+            <h4>Datos del Emprendedor</h4>
+            <p><strong>Nombre:</strong> ${emprendedor["Apellido y Nombre"] || ""}</p>
+            <p><strong>Actividad:</strong> ${emprendedor["Actividad"] || ""}</p>
+            <p><strong>Localidad:</strong> ${emprendedor["Localidad"] || ""}</p>
+            <p><strong>Dirección:</strong> ${emprendedor["Dirección del emprendimiento"] || ""}</p>
+            <div class="mt-3">${botonesTelefono}</div>
+            <div class="mt-3">${botonesRedes}</div>
+            <a href="Mapa.html" class="btn btn-outline-success mt-4"><i class="fas fa-arrow-left"></i> Volver</a>
+          `;
+
+          // Mapa (si hay coordenadas)
+          if (emprendedor["Latitud"] && emprendedor["Longitud"]) {
+            mapa.style.display = "block";
+            const lat = parseFloat(emprendedor["Latitud"]);
+            const lon = parseFloat(emprendedor["Longitud"]);
+            const map = L.map('map').setView([lat, lon], 16);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              maxZoom: 19,
+            }).addTo(map);
+            L.marker([lat, lon]).addTo(map).bindPopup(emprendedor["Nombre del emprendimiento"] || "").openPopup();
+          }
+
+          body.classList.remove('d-none');
+        })
+        .catch(err => {
+          document.querySelector('.perfil-header h2').textContent = "Error cargando los datos.";
+          console.error(err);
         });
-    </script>
-
+    });
+  </script>
 </body>
-
 </html>
