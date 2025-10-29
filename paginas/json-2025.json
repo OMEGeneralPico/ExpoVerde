@@ -8,7 +8,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Vive la Vida",
-    "Redes Sociales": "Instagram: @viverovivelavida                 Facebook: vivelavidaviverovivero",
+    "Redes Sociales": {
+      "Facebook": "vivelavidaviverovivero",
+      "Instagram": "@viverovivelavida"
+    },
     "Dirección del emprendimiento": "105 bis N° 556",
     "Teléfono del emprendimiento": 2302446379,
     "Actividad": "Vivero",
@@ -16,7 +19,8 @@
     "¿Qué medidas requiere para su stand?": "10 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "9.jpeg"
   },
   {
     "Column 16": 19,
@@ -27,7 +31,10 @@
     "Género": "Femenino",
     "Localidad": "General pico",
     "Nombre del emprendimiento": "Fundación De Tu Mano",
-    "Redes Sociales": "",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": ""
+    },
     "Dirección del emprendimiento": "21 N° 2599",
     "Teléfono del emprendimiento": 2302622939,
     "Actividad": "Vivero",
@@ -35,7 +42,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "19.png"
   },
   {
     "Column 16": 5,
@@ -46,7 +54,10 @@
     "Género": "Masculino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Ambientes Vivero",
-    "Redes Sociales": "Instagram: Ambientes Vivero",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "Ambientes Vivero"
+    },
     "Dirección del emprendimiento": "13 N° 1731",
     "Teléfono del emprendimiento": 2302605749,
     "Actividad": "Vivero",
@@ -54,7 +65,8 @@
     "¿Qué medidas requiere para su stand?": "10 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "5.jfif"
   },
   {
     "Column 16": 10,
@@ -65,7 +77,10 @@
     "Género": "Masculino",
     "Localidad": "Santa Rosa",
     "Nombre del emprendimiento": "Cítricos Pampa",
-    "Redes Sociales": "",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": ""
+    },
     "Dirección del emprendimiento": "Avenida Perón 3340",
     "Teléfono del emprendimiento": 2954270386,
     "Actividad": "Vivero",
@@ -73,7 +88,8 @@
     "¿Qué medidas requiere para su stand?": "10 x 5",
     "¿Necesita hospedaje?": "SI",
     "¿Para cuantas personas necesita hospedaje?": "4-6",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "10.png"
   },
   {
     "Column 16": 8,
@@ -84,7 +100,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "La cerámica de mamá",
-    "Redes Sociales": "Instagram: laceramicade.mama",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "laceramicade.mama"
+    },
     "Dirección del emprendimiento": "19 N° 154 oeste",
     "Teléfono del emprendimiento": 2302354614,
     "Actividad": "Arreglos y Accesorios",
@@ -92,7 +111,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "8.jpg"
   },
   {
     "Column 16": 16,
@@ -103,7 +123,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Cultivos Alzamora",
-    "Redes Sociales": "",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": ""
+    },
     "Dirección del emprendimiento": "121 bis y vías",
     "Teléfono del emprendimiento": 2302340007,
     "Actividad": "Vivero",
@@ -111,7 +134,8 @@
     "¿Qué medidas requiere para su stand?": "10 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "NO"
+    "¿Cuenta con gazebo?": "NO",
+    "foto": "16.jpg"
   },
   {
     "Column 16": 45,
@@ -122,7 +146,10 @@
     "Género": "Masculino",
     "Localidad": "Quemú Quemú",
     "Nombre del emprendimiento": "Hilando sueños",
-    "Redes Sociales": "",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": ""
+    },
     "Dirección del emprendimiento": "Clemente gambarini 945 Quemú quemu",
     "Teléfono del emprendimiento": 2302541951,
     "Actividad": "Vivero",
@@ -130,7 +157,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "SI",
     "¿Para cuantas personas necesita hospedaje?": 2,
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": null
   },
   {
     "Column 16": 43,
@@ -141,7 +169,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Hada botanica",
-    "Redes Sociales": "instagram: @HADA.BOTANICA",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "@HADA.BOTANICA"
+    },
     "Dirección del emprendimiento": "117 entre 8y10 N° 316",
     "Teléfono del emprendimiento": 2302661913,
     "Actividad": "Vivero",
@@ -149,7 +180,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": "43.jpg"
   },
   {
     "Column 16": 11,
@@ -160,7 +192,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Los Mononos",
-    "Redes Sociales": "",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": ""
+    },
     "Dirección del emprendimiento": "112 N° 367",
     "Teléfono del emprendimiento": 2302644714,
     "Actividad": "Arreglos y Accesorios",
@@ -168,7 +203,8 @@
     "¿Qué medidas requiere para su stand?": "10 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": null
   },
   {
     "Column 16": 36,
@@ -179,7 +215,10 @@
     "Género": "Femenino",
     "Localidad": "Dorila",
     "Nombre del emprendimiento": "Florecer",
-    "Redes Sociales": "",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": ""
+    },
     "Dirección del emprendimiento": "Segundo Gonzales 365",
     "Teléfono del emprendimiento": 2302576615,
     "Actividad": "Vivero",
@@ -187,7 +226,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": null
   },
   {
     "Column 16": 40,
@@ -198,7 +238,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Vivero Tita",
-    "Redes Sociales": "",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": ""
+    },
     "Dirección del emprendimiento": "500 N° 1966",
     "Teléfono del emprendimiento": 2302617788,
     "Actividad": "Vivero",
@@ -206,7 +249,8 @@
     "¿Qué medidas requiere para su stand?": "5 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": null
   },
   {
     "Column 16": 39,
@@ -217,7 +261,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "By Las Rositas",
-    "Redes Sociales": "https://www.instagram.com/bylasrositas?igsh=emN4bTdxbDZjNTdo",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "https://www.instagram.com/bylasrositas?igsh=emN4bTdxbDZjNTdo"
+    },
     "Dirección del emprendimiento": "6 N°  616",
     "Teléfono del emprendimiento": 2302204678,
     "Actividad": "Arreglos y Accesorios",
@@ -225,7 +272,8 @@
     "¿Qué medidas requiere para su stand?": "5 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "39.jpg"
   },
   {
     "Column 16": 27,
@@ -236,7 +284,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Vivero Jardín Encantado",
-    "Redes Sociales": "Instagram: @eljardinencantado.vivero",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "@eljardinencantado.vivero"
+    },
     "Dirección del emprendimiento": "18 bis N° 1325",
     "Teléfono del emprendimiento": 2302483221,
     "Actividad": "Vivero",
@@ -244,7 +295,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": "27.jpg"
   },
   {
     "Column 16": 6,
@@ -255,7 +307,10 @@
     "Género": "Masculino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "El Cami - Hierro y Madera",
-    "Redes Sociales": "@el.cami_",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "@el.cami_"
+    },
     "Dirección del emprendimiento": "9 oeste N° 575",
     "Teléfono del emprendimiento": 2302562020,
     "Actividad": "Arreglos y Accesorios",
@@ -263,7 +318,8 @@
     "¿Qué medidas requiere para su stand?": "5 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "6.jpg"
   },
   {
     "Column 16": 23,
@@ -274,7 +330,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Las canepas",
-    "Redes Sociales": "https://www.instagram.com/lascanepas?utm_source=qr&igsh=OXhndGxqMjR1ZnVo",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "https://www.instagram.com/lascanepas?utm_source=qr&igsh=OXhndGxqMjR1ZnVo"
+    },
     "Dirección del emprendimiento": "43 N° 711",
     "Teléfono del emprendimiento": 3512058487,
     "Actividad": "Arreglos y Accesorios",
@@ -282,7 +341,8 @@
     "¿Qué medidas requiere para su stand?": "5 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": "23.jpeg"
   },
   {
     "Column 16": 42,
@@ -293,7 +353,10 @@
     "Género": "Femenino",
     "Localidad": "Alta Italia",
     "Nombre del emprendimiento": "Vivero 'El Parque'",
-    "Redes Sociales": "https://www.instagram.com/yahvejireh.altaitalia?utm_source=qr&igsh=MWgxZTZmNmxneTVnZg==",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "https://www.instagram.com/yahvejireh.altaitalia?utm_source=qr&igsh=MWgxZTZmNmxneTVnZg=="
+    },
     "Dirección del emprendimiento": "Esther de Monmany555",
     "Teléfono del emprendimiento": 2302524166,
     "Actividad": "Vivero, Arreglos y Accesorios",
@@ -301,7 +364,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "SI",
     "¿Para cuantas personas necesita hospedaje?": 2,
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": "42.jpg"
   },
   {
     "Column 16": 32,
@@ -312,7 +376,10 @@
     "Género": "Masculino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "La boutique de Lucia",
-    "Redes Sociales": "Facebook: La Boutique De Lucia",
+    "Redes Sociales": {
+      "Facebook": "La Boutique De Lucia",
+      "Instagram": ""
+    },
     "Dirección del emprendimiento": "12 N° 476",
     "Teléfono del emprendimiento": 2302201287,
     "Actividad": "Arreglos y Accesorios",
@@ -320,7 +387,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": null
   },
   {
     "Column 16": 7,
@@ -331,7 +399,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Maria Margarita Plantas con Historias",
-    "Redes Sociales": "@MARIAMARGARITA989",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "@MARIAMARGARITA989"
+    },
     "Dirección del emprendimiento": "207 N° 2898",
     "Teléfono del emprendimiento": 2302487782,
     "Actividad": "Vivero",
@@ -339,7 +410,8 @@
     "¿Qué medidas requiere para su stand?": "5 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "7.jpg"
   },
   {
     "Column 16": 20,
@@ -350,7 +422,10 @@
     "Género": "Masculino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Plantas la norma y la ramona",
-    "Redes Sociales": "",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": ""
+    },
     "Dirección del emprendimiento": "34 N° 1056",
     "Teléfono del emprendimiento": 2302483202,
     "Actividad": "Vivero",
@@ -358,7 +433,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": null
   },
   {
     "Column 16": 14,
@@ -369,7 +445,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Huerteros Apolo",
-    "Redes Sociales": "https://www.instagram.com/huerterosapolo?igsh=N2d0aWUybHI4bzZs",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "https://www.instagram.com/huerterosapolo?igsh=N2d0aWUybHI4bzZs"
+    },
     "Dirección del emprendimiento": "17 N° 2237",
     "Teléfono del emprendimiento": 2302345642,
     "Actividad": "Vivero",
@@ -377,7 +456,8 @@
     "¿Qué medidas requiere para su stand?": "10 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "14.jpg"
   },
   {
     "Column 16": 4,
@@ -388,7 +468,10 @@
     "Género": "Masculino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "CR",
-    "Redes Sociales": "",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": ""
+    },
     "Dirección del emprendimiento": "2 N° 369 norte",
     "Teléfono del emprendimiento": 2302592910,
     "Actividad": "Arreglos y Accesorios",
@@ -396,7 +479,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": null
   },
   {
     "Column 16": 12,
@@ -407,7 +491,10 @@
     "Género": "Masculino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Huerta La Escondida",
-    "Redes Sociales": "Huerta La Escondida",
+    "Redes Sociales": {
+      "Facebook": "Huerta La Escondida",
+      "Instagram": ""
+    },
     "Dirección del emprendimiento": "25 N° 2468 (H.C.)",
     "Teléfono del emprendimiento": 2302649129,
     "Actividad": "Vivero",
@@ -415,7 +502,8 @@
     "¿Qué medidas requiere para su stand?": "10 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "12.jpg"
   },
   {
     "Column 16": 38,
@@ -426,7 +514,10 @@
     "Género": "Masculino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Vivero mi rayito de sol",
-    "Redes Sociales": "https://www.instagram.com/vivero_rayitodesol?utm_source=qr&igsh=aGdzdzN5NGdzcGt0",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "https://www.instagram.com/vivero_rayitodesol?utm_source=qr&igsh=aGdzdzN5NGdzcGt0"
+    },
     "Dirección del emprendimiento": "440 n157",
     "Teléfono del emprendimiento": 2302204857,
     "Actividad": "Vivero",
@@ -434,7 +525,8 @@
     "¿Qué medidas requiere para su stand?": "10 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "38.jpg"
   },
   {
     "Column 16": 2,
@@ -445,7 +537,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "bella.platas",
-    "Redes Sociales": "",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": ""
+    },
     "Dirección del emprendimiento": "33 entre 38 y 40",
     "Teléfono del emprendimiento": 2302629196,
     "Actividad": "Vivero",
@@ -453,7 +548,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": null
   },
   {
     "Column 16": 30,
@@ -464,7 +560,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Patio de plantas",
-    "Redes Sociales": "https://www.instagram.com/patio_de_plantas_gp?utm_source=qr&igsh=ZHp1NTY5MzRzNHdh",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "https://www.instagram.com/patio_de_plantas_gp?utm_source=qr&igsh=ZHp1NTY5MzRzNHdh"
+    },
     "Dirección del emprendimiento": "11 oeste N° 246",
     "Teléfono del emprendimiento": 2302445899,
     "Actividad": "Vivero, Arreglos y Accesorios",
@@ -472,7 +571,8 @@
     "¿Qué medidas requiere para su stand?": "10 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "30.jpg"
   },
   {
     "Column 16": 119,
@@ -483,7 +583,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "El zarcillo",
-    "Redes Sociales": "@ELZARCILLOHUERTA",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "@ELZARCILLOHUERTA"
+    },
     "Dirección del emprendimiento": "Río Negro 1355",
     "Teléfono del emprendimiento": 2302308879,
     "Actividad": "Vivero, Arreglos y Accesorios, Paisajistas y Jardineros",
@@ -491,7 +594,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": "119.jpg"
   },
   {
     "Column 16": 13,
@@ -502,7 +606,10 @@
     "Género": "Femenino",
     "Localidad": "Eduardo Castex",
     "Nombre del emprendimiento": "Vivero La Chacrita",
-    "Redes Sociales": "https://www.instagram.com/lachacrita2002?utm_source=qr&igsh=c2J2bnMyM3dhamNl",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "https://www.instagram.com/lachacrita2002?utm_source=qr&igsh=c2J2bnMyM3dhamNl"
+    },
     "Dirección del emprendimiento": "Sección Quintas. Ed. Castex",
     "Teléfono del emprendimiento": 2334406136,
     "Actividad": "Vivero",
@@ -510,7 +617,8 @@
     "¿Qué medidas requiere para su stand?": "10 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "13.jpg"
   },
   {
     "Column 16": 3,
@@ -521,7 +629,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Serendipia eco arte",
-    "Redes Sociales": "@SERENDIPIAECOARTE",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "@SERENDIPIAECOARTE"
+    },
     "Dirección del emprendimiento": "12 N° 555",
     "Teléfono del emprendimiento": 2302468066,
     "Actividad": "Arreglos y Accesorios",
@@ -529,7 +640,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": "3.jpg"
   },
   {
     "Column 16": 21,
@@ -540,7 +652,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "VerdeAgua",
-    "Redes Sociales": "https://www.instagram.com/verdeagua.gp?utm_source=qr&igsh=MTBlanN4dzJrNTQyag==",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "https://www.instagram.com/verdeagua.gp?utm_source=qr&igsh=MTBlanN4dzJrNTQyag=="
+    },
     "Dirección del emprendimiento": "276 N° 1114",
     "Teléfono del emprendimiento": 2302419136,
     "Actividad": "Vivero",
@@ -548,7 +663,8 @@
     "¿Qué medidas requiere para su stand?": "10 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "21.jpg"
   },
   {
     "Column 16": 34,
@@ -559,7 +675,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Los Aromas",
-    "Redes Sociales": "@Losaromasgp",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "@Losaromasgp"
+    },
     "Dirección del emprendimiento": "38 e 105 y 107",
     "Teléfono del emprendimiento": 2302624313,
     "Actividad": "Vivero",
@@ -567,10 +686,9 @@
     "¿Qué medidas requiere para su stand?": "5 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "34.jpg"
   },
-  
-   
   {
     "Column 16": 37,
     "Marca temporal": "14/10/2025 9:35:16",
@@ -580,7 +698,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Iacomuzzi Micaela",
-    "Redes Sociales": "",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": ""
+    },
     "Dirección del emprendimiento": "24 N° 365",
     "Teléfono del emprendimiento": 2302603087,
     "Actividad": "Vivero",
@@ -588,7 +709,8 @@
     "¿Qué medidas requiere para su stand?": "5 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "NO"
+    "¿Cuenta con gazebo?": "NO",
+    "foto": null
   },
   {
     "Column 16": 26,
@@ -599,7 +721,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Alondras Deco",
-    "Redes Sociales": "https://www.instagram.com/decoalondras?igsh=ZDU5Y3QzbTIzaDdv&utm_source=qr",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "https://www.instagram.com/decoalondras?igsh=ZDU5Y3QzbTIzaDdv&utm_source=qr"
+    },
     "Dirección del emprendimiento": "28 N° 285",
     "Teléfono del emprendimiento": 2302564230,
     "Actividad": "Arreglos y Accesorios",
@@ -607,7 +732,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": null
   },
   {
     "Column 16": 41,
@@ -618,7 +744,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Mis Querencias",
-    "Redes Sociales": "pamelasmanchento@gmail.com",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": ""
+    },
     "Dirección del emprendimiento": "9 N° 2454",
     "Teléfono del emprendimiento": 2302443497,
     "Actividad": "Vivero",
@@ -626,7 +755,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": null
   },
   {
     "Column 16": 22,
@@ -637,7 +767,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Arte reciclado",
-    "Redes Sociales": "",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": ""
+    },
     "Dirección del emprendimiento": "104  N° 637",
     "Teléfono del emprendimiento": 2302695213,
     "Actividad": "Vivero, Arreglos y Accesorios",
@@ -645,9 +778,9 @@
     "¿Qué medidas requiere para su stand?": "5 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "22.jpg"
   },
- 
   {
     "Column 16": 33,
     "Marca temporal": "20/10/2025 13:05:23",
@@ -657,7 +790,10 @@
     "Género": "Masculino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Casa de plantas",
-    "Redes Sociales": "@la.casadelasplantas_",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "@la.casadelasplantas_"
+    },
     "Dirección del emprendimiento": "22 esquina 9",
     "Teléfono del emprendimiento": "223-5163390",
     "Actividad": "Vivero",
@@ -665,7 +801,8 @@
     "¿Qué medidas requiere para su stand?": "5 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": "33.jpg"
   },
   {
     "Column 16": 28,
@@ -676,7 +813,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Mis Cosentidas",
-    "Redes Sociales": "Instagram: claudia_gral_pico",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "claudia_gral_pico"
+    },
     "Dirección del emprendimiento": "113 N° 1173",
     "Teléfono del emprendimiento": 2302639234,
     "Actividad": "Vivero",
@@ -684,7 +824,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "28.jpg"
   },
   {
     "Column 16": 24,
@@ -695,7 +836,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Vivero Los Cardones",
-    "Redes Sociales": "Instagram Vivero Los Cardones Face :Sonia Vivero Los Cardones",
+    "Redes Sociales": {
+      "Facebook": "Sonia Vivero Los Cardones",
+      "Instagram": "Vivero Los Cardones"
+    },
     "Dirección del emprendimiento": "1 bis N° 1634",
     "Teléfono del emprendimiento": 2302580547,
     "Actividad": "Vivero",
@@ -703,7 +847,8 @@
     "¿Qué medidas requiere para su stand?": "5 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": "24.jpg"
   },
   {
     "Column 16": 44,
@@ -714,7 +859,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "LOTUSCHIC_DECO",
-    "Redes Sociales": "Instagram: LOTUSCHIC_DECO",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "LOTUSCHIC_DECO"
+    },
     "Dirección del emprendimiento": "3 N° 1434",
     "Teléfono del emprendimiento": 2302418460,
     "Actividad": "Arreglos y Accesorios",
@@ -722,7 +870,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "44.jpg"
   },
   {
     "Column 16": 29,
@@ -733,7 +882,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Corazón de cactus",
-    "Redes Sociales": "Instagram: @cora.zonadecactus",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "@cora.zonadecactus"
+    },
     "Dirección del emprendimiento": "276 N° 1167",
     "Teléfono del emprendimiento": 2302632017,
     "Actividad": "Vivero",
@@ -741,7 +893,8 @@
     "¿Qué medidas requiere para su stand?": "5 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": "29.jfif"
   },
   {
     "Column 16": 17,
@@ -752,7 +905,10 @@
     "Género": "Masculino",
     "Localidad": "Villa Mirasol",
     "Nombre del emprendimiento": "Paki Artesanias",
-    "Redes Sociales": "Instagram: Paki",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "Paki"
+    },
     "Dirección del emprendimiento": "Av San Martin N° 1218",
     "Teléfono del emprendimiento": 2302696815,
     "Actividad": "Arreglos y Accesorios",
@@ -760,7 +916,8 @@
     "¿Qué medidas requiere para su stand?": "5 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "17.jpg"
   },
   {
     "Column 16": 1,
@@ -771,7 +928,10 @@
     "Género": "Masculino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Ferti-Aleh",
-    "Redes Sociales": "ferti_aleh",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "ferti_aleh"
+    },
     "Dirección del emprendimiento": "104 N° 1536",
     "Teléfono del emprendimiento": "2302368017-696080",
     "Actividad": "Arreglos y Accesorios",
@@ -779,7 +939,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "1.jpg"
   },
   {
     "Column 16": 35,
@@ -790,7 +951,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "El Paseo de las Hadas",
-    "Redes Sociales": "Instagram: paseode hadas.gp facebook: Vivero El Paseo de las Hadas",
+    "Redes Sociales": {
+      "Facebook": "Vivero El Paseo de las Hadas",
+      "Instagram": "paseode hadas.gp"
+    },
     "Dirección del emprendimiento": "333 N° 75",
     "Teléfono del emprendimiento": 2302508868,
     "Actividad": "Vivero, Arreglos y Accesorios, Paisajistas y Jardineros",
@@ -798,7 +962,8 @@
     "¿Qué medidas requiere para su stand?": "10 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "No"
+    "¿Cuenta con gazebo?": "No",
+    "foto": "35.jpg"
   },
   {
     "Column 16": 31,
@@ -809,7 +974,10 @@
     "Género": "Masculino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Mossfera",
-    "Redes Sociales": "https://www.instagram.com/leoagusaguilarsepulveda?utm_source=qr&igsh=MW1iYW40N2x2aHhxMA==",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "https://www.instagram.com/leoagusaguilarsepulveda?utm_source=qr&igsh=MW1iYW40N2x2aHhxMA=="
+    },
     "Dirección del emprendimiento": "31 oeste N° 335",
     "Teléfono del emprendimiento": 2954318782,
     "Actividad": "Vivero",
@@ -817,7 +985,8 @@
     "¿Qué medidas requiere para su stand?": "3 x 3",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "31.jpg"
   },
   {
     "Column 16": 18,
@@ -828,7 +997,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Loretta vivero",
-    "Redes Sociales": "https://www.instagram.com/loretta_vivero?igsh=MWVieG9wajBiN3FzdA%3D%3D&utm_source=qr",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "https://www.instagram.com/loretta_vivero?igsh=MWVieG9wajBiN3FzdA%3D%3D&utm_source=qr"
+    },
     "Dirección del emprendimiento": "38 bis N° 1035",
     "Teléfono del emprendimiento": 2302205940,
     "Actividad": "Vivero, Arreglos y Accesorios",
@@ -836,7 +1008,8 @@
     "¿Qué medidas requiere para su stand?": "5 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": "18.jpg"
   },
   {
     "Column 16": 25,
@@ -847,7 +1020,10 @@
     "Género": "Femenino",
     "Localidad": "General Pico",
     "Nombre del emprendimiento": "Brotes Pampeanos",
-    "Redes Sociales": "@brotespampeanos",
+    "Redes Sociales": {
+      "Facebook": "",
+      "Instagram": "@brotespampeanos"
+    },
     "Dirección del emprendimiento": "25 N° 192",
     "Teléfono del emprendimiento": 2302517748,
     "Actividad": "Arreglos y Accesorios",
@@ -855,7 +1031,7 @@
     "¿Qué medidas requiere para su stand?": "5 x 5",
     "¿Necesita hospedaje?": "NO",
     "¿Para cuantas personas necesita hospedaje?": "",
-    "¿Cuenta con gazebo?": "Si"
+    "¿Cuenta con gazebo?": "Si",
+    "foto": null
   }
-
 ]

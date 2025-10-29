@@ -249,27 +249,35 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-   async function encontrarImagen(numero) {
-  const extensiones = ['png', 'jpg', 'jpeg', 'webp'];
-
-  // Detectar si estamos en GitHub Pages o en entorno local
-  const basePath = window.location.hostname.includes("github.io")
-    ? "/ExpoVerde/imagenes/"  // ✅ ruta absoluta para GitHub Pages
-    : "../imagenes/";         // ✅ ruta relativa para entorno local
-
-  for (const ext of extensiones) {
-    const ruta = `${basePath}${numero}.${ext}`;
-    try {
-      const resp = await fetch(ruta, { method: 'HEAD' });
-      if (resp.ok) return ruta; // ✅ la imagen existe
-    } catch (e) {
-      // ignorar errores de red o 404
-    }
+ /**
+ * Construye la ruta completa a una imagen basándose en el nombre de archivo
+ * y el entorno de despliegue (GitHub Pages o local).
+ *
+ * @param {string | null} nombreArchivoFoto El nombre del archivo (ej: "9.jpeg")
+ * o null si no hay foto.
+ * @returns {string | null} La ruta completa a la imagen o null.
+ */
+function encontrarImagen(nombreArchivoFoto) {
+  
+  // 1. Verificar si el emprendedor tiene una foto asignada
+  // Si el campo 'foto' es nulo o está vacío, no hay imagen que mostrar.
+  if (!nombreArchivoFoto) {
+    return null;
+    
+    // Opcionalmente, podrías devolver la ruta a una imagen "placeholder"
+    // const basePath = obtenerBasePath(); // (ver punto 2)
+    // return `${basePath}placeholder.png`;
   }
 
-  return null; // ❌ no se encontró ninguna imagen válida
-}
+  // 2. Detectar si estamos en GitHub Pages o en entorno local
+  const basePath = window.location.hostname.includes("github.io")
+    ? "/ExpoVerde/imagenes/"  // ✅ Ruta absoluta para GitHub Pages
+    : "../imagenes/";         // ✅ Ruta relativa para entorno local
 
+  // 3. Devuelve la ruta completa
+  // Simplemente concatena la base y el nombre del archivo que ya tenías
+  return `${basePath}${nombreArchivoFoto}`;
+}
   
     fetch('json-2025.json')
       .then(r => r.json())
