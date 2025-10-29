@@ -257,7 +257,7 @@
  * o null si no hay foto.
  * @returns {string | null} La ruta completa a la imagen o null.
  */
-function encontrarImagen(nombreArchivoFoto) {
+function obtenerRutaImagen(nombreArchivoFoto) {
   
   // 1. Verificar si el emprendedor tiene una foto asignada
   // Si el campo 'foto' es nulo o está vacío, no hay imagen que mostrar.
@@ -278,66 +278,76 @@ function encontrarImagen(nombreArchivoFoto) {
   // Simplemente concatena la base y el nombre del archivo que ya tenías
   return `${basePath}${nombreArchivoFoto}`;
 }
-  
-    fetch('json-2025.json')
-      .then(r => r.json())
-      .then(async data => {
+fetch('json-2025.json')
+    .then(r => r.json())
+    // 1. Quita 'async' de aquí, ya no es necesario
+    .then(data => {
         const contenedor = document.getElementById('contenedor-cards');
         const tablaBody = document.querySelector('#tabla-emprendedores tbody');
         const tarjetasConImg = [];
         const tarjetasSinImg = [];
-  
+
         // 1️⃣ Generar tarjetas
         for (const [index, item] of data.entries()) {
-          const numero = item["Column 16"];
-          const imgPath = await encontrarImagen(numero);
-  
-          const col = document.createElement('div');
-          col.classList.add('col-lg-4', 'col-md-6', 'col-sm-12', 'mb-4');
-  
-          const card = document.createElement('div');
-          card.classList.add('card', 'shadow-sm');
-  
-          card.innerHTML = `
-            <h5 class="card-title">${item["Nombre del emprendimiento"] || "Sin nombre"}</h5>
-            ${imgPath 
-              ? `<img src="${imgPath}" alt="${item["Nombre del emprendimiento"] || "Imagen"}">`
-              : `<div class="placeholder-img"><div></div></div>`
-            }
-            <div class="card-text">
-              <p><strong>Emprendedor:</strong> ${item["Apellido y Nombre"] || ""}</p>
-              <p><strong>Actividad:</strong> ${item["Actividad"] || ""}</p>
-              <p><strong>Localidad:</strong> ${item["Localidad"] || ""}</p>
-            </div>
-            <a href="Emprendedor.html?numero=${numero}" class="btn btn-detalle">
-              <i class="fas fa-user"></i> Ver detalle
-            </a>
-          `;
-  
-          col.appendChild(card);
-  
-          // separar según tengan imagen o no
-          if (imgPath) tarjetasConImg.push(col);
-          else tarjetasSinImg.push(col);
-  
-          // también llenamos la tabla normal
-          const row = document.createElement('tr');
-          row.innerHTML = `
-            <td>${index + 1}</td>
-            <td>${item["Apellido y Nombre"] || ""}</td>
-            <td>${item["Nombre del emprendimiento"] || ""}</td>
-            <td>${item["Actividad"] || ""}</td>
-            <td>${item["Localidad"] || ""}</td>
-            <td>${item["Dirección del emprendimiento"] || ""}</td>
-            <td>${item["Teléfono del emprendimiento"] || ""}</td>
-          `;
-          tablaBody.appendChild(row);
+            
+            // --- INICIO DE LA CORRECCIÓN ---
+            
+            // Lee el nombre del archivo (ej: "9.jpeg" o null)
+            const nombreArchivoFoto = item.foto; 
+            
+            // Llama a la nueva función síncrona para construir la ruta
+            const imgPath = obtenerRutaImagen(nombreArchivoFoto);
+            
+            // Mantenemos el 'numero' solo para el link del botón
+            const numero = item["Column 16"];
+
+            // --- FIN DE LA CORRECCIÓN ---
+
+            const col = document.createElement('div');
+            col.classList.add('col-lg-4', 'col-md-6', 'col-sm-12', 'mb-4');
+
+            const card = document.createElement('div');
+            card.classList.add('card', 'shadow-sm');
+
+            // El resto de tu código para crear el HTML es correcto
+            card.innerHTML = `
+                <h5 class="card-title">${item["Nombre del emprendimiento"] || "Sin nombre"}</h5>
+                ${imgPath 
+                    ? `<img src="${imgPath}" alt="${item["Nombre del emprendimiento"] || "Imagen"}">`
+                    : `<div class="placeholder-img"><div></div></div>`
+                }
+                <div class="card-text">
+                    <p><strong>Emprendedor:</strong> ${item["Apellido y Nombre"] || ""}</p>
+                    <p><strong>Actividad:</strong> ${item["Actividad"] || ""}</p>
+                    <p><strong>Localidad:</strong> ${item["Localidad"] || ""}</p>
+                </div>
+                <a href="Emprendedor.html?numero=${numero}" class="btn btn-detalle">
+                    <i class="fas fa-user"></i> Ver detalle
+                </a>
+            `;
+
+            col.appendChild(card);
+
+            if (imgPath) tarjetasConImg.push(col);
+            else tarjetasSinImg.push(col);
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${item["Apellido y Nombre"] || ""}</td>
+                <td>${item["Nombre del emprendimiento"] || ""}</td>
+                <td>${item["Actividad"] || ""}</td>
+                <td>${item["Localidad"] || ""}</td>
+                <td>${item["Dirección del emprendimiento"] || ""}</td>
+                <td>${item["Teléfono del emprendimiento"] || ""}</td>
+            `;
+            tablaBody.appendChild(row);
         }
-  
+
         // 2️⃣ Ordenar: con imagen primero
         [...tarjetasConImg, ...tarjetasSinImg].forEach(col => contenedor.appendChild(col));
-      })
-      .catch(err => console.error("Error cargando json-2025.json:", err));
+    })
+    .catch(err => console.error("Error cargando json-2025.json:", err));
   </script>
   
   
