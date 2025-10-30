@@ -193,7 +193,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-custom">
     <div class="container-fluid px-4">
       <a class="navbar-brand" href="#">
-        <img src="imagenes/ferialogo.png" alt="Expo Verde">
+        <img src="../imagenes/ferialogo.png" alt="Expo Verde">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -234,19 +234,19 @@
       <div id="carouselExampleIndicators" class="carousel slide w-100 h-100" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="imagenes/_folklore.jpeg" class="d-block w-100" alt="Folclore">
+            <img src="../imagenes/_folklore.jpeg" class="d-block w-100" alt="Folclore">
             <div class="carousel-caption">
               <h5>Taller de Folclore</h5>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="imagenes/_cafe.jpg" class="d-block w-100" alt="Café">
+            <img src="../imagenes/_cafe.jpg" class="d-block w-100" alt="Café">
             <div class="carousel-caption">
               <h5>Festival del Café</h5>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="imagenes/_yoga.jpg" class="d-block w-100" alt="Show musical">
+            <img src="../imagenes/_yoga.jpg" class="d-block w-100" alt="Show musical">
             <div class="carousel-caption">
               <h5>Show musical: Ricardo Sánchez</h5>
             </div>
@@ -255,17 +255,17 @@
       </div>
     </div>
 
-    <div class="bento-box emprendedores" style="background-image: url('imagenes/_jurado.jpeg')" data-img="auto">
+    <div class="bento-box emprendedores" style="background-image: url('../imagenes/_jurado.jpeg')" data-img="auto">
       <h3 style="color: wheat;">Emprendedores</h3>
       <a href="./paginas/Mapa.html">Ver más</a>
     </div>
 
-    <div class="bento-box cafes" style="background-image: url('imagenes/_cafe.jpg')" data-img="auto">
+    <div class="bento-box cafes" style="background-image: url('../imagenes/_cafe.jpg')" data-img="auto">
       <h3 style="color: wheat;">Cafeterías</h3>
       <a href="./paginas/Cafe.html">Explorar</a>
     </div>
 
-    <div class="bento-box cronograma" style="background-image: url('imagenes/_yoga.jpg')" data-img="auto">
+    <div class="bento-box cronograma" style="background-image: url('../imagenes/_yoga.jpg')" data-img="auto">
       <h3 style="color: wheat;">Cronograma</h3>
       <a href="./paginas/Eventos.html">Ver horarios</a>
     </div>
@@ -275,13 +275,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // Verifica si las imágenes existen; si no, aplica el cuadrado en blanco
-    // **NOTA**: La URL dentro de fetch también debe ser corregida si usas esta verificación.
-    // En entornos reales, la función getComputedStyle().backgroundImage ya resuelve la ruta.
-    // Si tienes problemas en GitHub Pages, es posible que debas cambiar la lógica de 'url'
-    /*
+    // NOTA: Esta función de JS podría seguir fallando en la comprobación de URL si GitHub Pages es estricto.
+    // Si la imagen falla, se aplicará el estilo de "cuadrado en blanco".
     document.querySelectorAll('.bento-box[data-img="auto"]').forEach(async box => {
       const style = getComputedStyle(box).backgroundImage;
-      const url = style.slice(5, -2); // Esto obtiene la URL con la ruta corregida 'imagenes/...'
+      const url = style.slice(5, -2);
       try {
         const res = await fetch(url, { method: 'HEAD' });
         if (!res.ok) throw new Error();
@@ -291,7 +289,6 @@
         box.style.color = '#aaa';
       }
     });
-    */
   </script>
 </body>
 </html>
