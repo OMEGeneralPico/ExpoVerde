@@ -1,216 +1,300 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feria Expo Verde 2024</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        a {
-            color: whitesmoke;
-            text-decoration: none;
-            /* Quitar subrayado */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expo Verde 2025</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-            font-size: inherit;
-            /* Heredar tamaño de letra */
-        }
+  <style>
+    body {
+      background-color: #fff;
+      font-family: "Poppins", "Segoe UI", sans-serif;
+      margin: 0;
+    }
 
-        /* Cambia el color de fondo del navbar */
-        .bg-custom {
-            background-color: #6d105c !important;
-        }
+    /* === NAVBAR === */
+    .bg-custom {
+      background-color: #6d105c !important;
+    }
 
-        .navbar-nav .nav-link {
-            color: white !important;
-            /* Color blanco para los enlaces */
-        }
+    .navbar-brand img {
+      width: 100px;
+      height: auto;
+    }
 
-        /* Cambiar el color del enlace al pasar el mouse */
-        .navbar-nav .nav-link:hover {
-            color: #f0f0f0 !important;
-            /* Color más claro al hacer hover */
-        }
+    .navbar-nav .nav-item a {
+      color: white !important;
+      font-weight: 500;
+      padding: 8px 18px;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
 
-        .container {
-            color: #119A79;
-        }
+    .navbar-nav .nav-item a:hover,
+    .navbar-nav .nav-item a.active {
+      background-color: #ffffff33;
+    }
 
-        /* Personalizar el navbar para que los botones sean anchos en pantallas pequeñas */
-        @media (max-width: 768px) {
-            .navbar-nav .nav-link {
-                width: 100%;
-                text-align: center;
-            }
-        }
-    </style>
-    <style>
-        /* Mostrar este div solo en modo vertical (portrait) */
-        .solo-portrait {
-            display: block;
-            background-color: lightblue;
+    @media (max-width: 768px) {
+      .navbar-nav .nav-item a {
+        width: 100%;
+        text-align: center;
+      }
+    }
 
-            text-align: center;
-        }
+    /* === BENTO GRID === */
+    .bento-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 250px);
+      padding: 1.5rem;
+      height: calc(100vh - 90px);
+    }
 
-        /* Mostrar este div solo en modo horizontal (landscape) */
-        .solo-landscape {
-            display: none;
-            /* Ocultar por defecto */
+    .bento-box {
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+    }
 
+    .bento-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
 
-            text-align: center;
-        }
+    .bento-box h3 {
+      font-weight: 700;
+      color: #6d105c;
+      z-index: 2;
+    }
 
-        /* Si la pantalla está en modo vertical */
-        @media (orientation: portrait) {
-            .solo-landscape {
-                display: none;
-            }
+    /* === COLORES Y ROLES === */
+    .fecha {
+      background: linear-gradient(135deg, #6d105c, #9b2a87);
+      color: white;
+      flex-direction: column;
+      grid-column: span 1;
+    }
 
-            .solo-portrait {
-                display: block;
-            }
-        }
+    .fecha h2 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
 
-        /* Si la pantalla está en modo horizontal */
-        @media (orientation: landscape) {
-            .solo-landscape {
-                display: block;
-            }
+    .fecha p {
+      margin: 0;
+      font-size: 1.1rem;
+    }
 
-            .solo-portrait {
-                display: none;
-            }
-        }
-    </style>
+    .clima {
+      grid-column: span 2;
+      background: linear-gradient(135deg, #9b2a87, #6d105c);
+      color: white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      text-align: center;
+    }
+
+    .clima-dia {
+      flex: 1;
+    }
+
+    .clima-icon {
+      font-size: 3rem;
+    }
+
+    /* === CAROUSEL === */
+    .carousel-box {
+      grid-column: span 3;
+      grid-row: span 1;
+      padding: 0;
+    }
+
+    .carousel-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* === CAJAS INFERIORES === */
+    .emprendedores,
+    .cafes,
+    .cronograma {
+      flex-direction: column;
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    .emprendedores::before,
+    .cafes::before,
+    .cronograma::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .bento-box h3,
+    .bento-box a {
+      position: relative;
+      z-index: 2;
+    }
+
+    .bento-box a {
+      background-color: #fff;
+      color: #6d105c;
+      padding: 6px 14px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      transition: 0.2s;
+    }
+
+    .bento-box a:hover {
+      background-color: #ffe1ff;
+    }
+
+    /* === PLACEHOLDER IMAGEN SI NO EXISTE === */
+    .bento-box[data-img="none"] {
+      background-color: #f6f6f6;
+      border: 2px dashed #ddd;
+      color: #999;
+    }
+
+    @media (max-width: 900px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        height: auto;
+      }
+
+      .carousel-box {
+        grid-column: span 1;
+        grid-row: auto;
+        height: 300px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
-        <div class="container-fluid ">
-            <a class="navbar-brand" href="#">
-                <img src="./imagenes/ferialogo.png" width="100px" alt="Expo Verde">
-                <!-- Cambia por la URL de tu logo -->
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a href="./paginas/Mapa.html">Emprendedores </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="" href="./paginas/Eventos.html"> Eventos</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Carrusel -->
-    <div>
-        <img src="imagenes/Intro.png"
-            class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+  <!-- === NAVBAR === -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand" href="#">
+        <img src="./imagenes/ferialogo.png" alt="Expo Verde">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="./paginas/Mapa.html">Emprendedores</a></li>
+          <li class="nav-item"><a href="./paginas/Cafe.html">Cafeterías</a></li>
+          <li class="nav-item"><a href="./paginas/Eventos.html">Eventos</a></li>
+        </ul>
+      </div>
     </div>
-    <div id="carouselExampleIndicators" class="carousel slide solo-landscape" data-bs-ride="carousel">
+  </nav>
 
+  <!-- === BENTO GRID === -->
+  <div class="bento-grid">
+
+    <!-- FECHA -->
+    <div class="bento-box fecha">
+      <h2>8 y 9 DICIEMBRE</h2>
+      <p>Exposición Rural - General Pico</p>
+      <p><small>9:00 a 22:00 hs</small></p>
+    </div>
+
+    <!-- CLIMA -->
+    <div class="bento-box clima">
+      <div class="clima-dia">
+        <div class="clima-icon">☀️</div>
+        <h4>Sábado</h4>
+        <p>23°C - Soleado</p>
+      </div>
+      <div class="clima-dia">
+        <div class="clima-icon">🌤️</div>
+        <h4>Domingo</h4>
+        <p>25°C - Parcialmente nublado</p>
+      </div>
+    </div>
+
+    <!-- CAROUSEL -->
+    <div class="bento-box carousel-box">
+      <div id="carouselExampleIndicators" class="carousel slide w-100 h-100" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <picture>
-                    <!-- Imagen para pantallas verticales (portrait) -->
-                    <source media="(orientation: portrait)" srcset="./imagenes/charla1b.png">
-                    <!-- Imagen para pantallas horizontales (landscape) -->
-                    <source media="(orientation: landscape)" srcset="./imagenes/charla1.png">
-                    <!-- Imagen por defecto -->
-                    <img src="./imagenes/charla1-horizontal.png" class="d-block w-100" alt="Imagen 1">
-                </picture>
+          <div class="carousel-item active">
+            <img src="./imagenes/_folklore.jpeg" class="d-block w-100" alt="Folclore">
+            <div class="carousel-caption">
+              <h5>Taller de Folclore</h5>
             </div>
-            <div class="carousel-item">
-                <picture>
-                    <!-- Imagen para pantallas verticales (portrait) -->
-                    <source media="(orientation: portrait)" srcset="./imagenes/charla2b.png">
-                    <!-- Imagen para pantallas horizontales (landscape) -->
-                    <source media="(orientation: landscape)" srcset="./imagenes/charla2.png">
-                    <!-- Imagen por defecto -->
-                    <img src="./imagenes/charla2.png" class="d-block w-100" alt="Imagen 1">
-                </picture>
+          </div>
+          <div class="carousel-item">
+            <img src="./imagenes/_cafe.jpg" class="d-block w-100" alt="Café">
+            <div class="carousel-caption">
+              <h5>Festival del Café</h5>
             </div>
-            <div class="carousel-item">
-                <picture>
-                    <!-- Imagen para pantallas verticales (portrait) -->
-                    <source media="(orientation: portrait)" srcset="./imagenes/charla1b.png">
-                    <!-- Imagen para pantallas horizontales (landscape) -->
-                    <source media="(orientation: landscape)" srcset="./imagenes/charla1.png">
-                    <!-- Imagen por defecto -->
-                    <img src="./imagenes/charla1-horizontal.png" class="d-block w-100" alt="Imagen 1">
-                </picture>
+          </div>
+          <div class="carousel-item">
+            <img src="./imagenes/_yoga.jpg" class="d-block w-100" alt="Show musical">
+            <div class="carousel-caption">
+              <h5>Show musical: Ricardo Sánchez</h5>
             </div>
+          </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Siguiente</span>
-        </button>
+      </div>
     </div>
-    <div class="solo-portrait">
 
-        <a href="./paginas/Mapa.html">
-            <img src="./imagenes/charla2b.png" class=" w-100" style="width: 100vw;" alt="Imagen 1"></a>
-        <img src="./imagenes/charla1b.png" class="d-block w-100" alt="Imagen 1">
+    <!-- EMPRENDEDORES -->
+    <div class="bento-box emprendedores" style="background-image: url('./imagenes/_jurado.jpeg')" data-img="auto">
+      <h3 style="color: wheat;">Emprendedores</h3>
+      <a href="./paginas/Mapa.html">Ver más</a>
     </div>
-    <!-- Footer -->
-    <footer class="bg-light text-center text-lg-start">
-        <div class="container p-4">
-            <div class="row">
-                <!-- Sección de Información -->
-                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Direccion de Desarrollo Economico</h5>
-                    <p>
-                        Aquí puedes colocar una breve descripción de tu empresa o proyecto.
-                    </p>
-                </div>
 
-                <!-- Enlaces -->
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Enlaces Útiles</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li><a href="#" class="text-success">Inicio</a></li>
-                        <li><a href="#" class="text-success">Sobre Nosotros</a></li>
-                        <li><a href="#" class="text-success">Contacto</a></li>
-                    </ul>
-                </div>
+    <!-- CAFÉS -->
+    <div class="bento-box cafes" style="background-image: url('./imagenes/_cafe.jpg')" data-img="auto">
+      <h3 style="color: wheat;">Cafeterías</h3>
+      <a href="./paginas/Cafe.html">Explorar</a>
+    </div>
 
-                <!-- Redes Sociales -->
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Síguenos</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li><a href="#" class="text-dark">Facebook</a></li>
-                        <li><a href="#" class="text-dark">Twitter</a></li>
-                        <li><a href="#" class="text-dark">Instagram</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <!-- CRONOGRAMA -->
+    <div class="bento-box cronograma" style="background-image: url('./imagenes/_yoga.jpg')" data-img="auto">
+      <h3 style="color: wheat;">Cronograma</h3>
+      <a href="./paginas/Eventos.html">Ver horarios</a>
+    </div>
 
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2024
-            <a class="text-dark" href="#">Direccion de Desarrollo Economico I Secretaria de Economia</a>
-        </div>
-    </footer>
+  </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Verifica si las imágenes existen; si no, aplica el cuadrado en blanco
+    document.querySelectorAll('.bento-box[data-img="auto"]').forEach(async box => {
+      const style = getComputedStyle(box).backgroundImage;
+      const url = style.slice(5, -2);
+      try {
+        const res = await fetch(url, { method: 'HEAD' });
+        if (!res.ok) throw new Error();
+      } catch {
+        box.style.background = '#f6f6f6';
+        box.style.border = '2px dashed #ddd';
+        box.style.color = '#aaa';
+      }
+    });
+  </script>
 </body>
-
 </html>

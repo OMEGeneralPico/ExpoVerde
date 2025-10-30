@@ -1,198 +1,293 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eventos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Leaflet CSS para el mapa -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos - Expo Verde 2025</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-        /* Estilo del mapa */
-        #map {
-            height: 400px;
-            width: 100%;
-            margin-bottom: 20px;
-        }
+  <style>
+    /* === BARRA SUPERIOR (tu diseño original mejorado) === */
+    a {
+      color: whitesmoke;
+      text-decoration: none;
+      font-size: inherit;
+    }
 
-        a {
-            color: whitesmoke;
-            text-decoration: none;
-            /* Quitar subrayado */
+    .bg-custom {
+      background-color: #6d105c !important;
+    }
 
-            font-size: inherit;
-            /* Heredar tamaño de letra */
-        }
+    .navbar {
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    }
 
-        object {
-            padding-bottom: 0px;
-            margin-bottom: 0px;
-        }
+    .navbar-brand img {
+      width: 100px;
+      height: auto;
+    }
 
-        /* Cambia el color de fondo del navbar */
-        .bg-custom {
-            background-color: #6d105c !important;
-        }
+    .navbar-nav {
+      gap: 1rem;
+    }
 
-        .navbar-nav .nav-link {
-            color: white !important;
-            /* Color blanco para los enlaces */
-        }
+    .navbar-nav .nav-item a {
+      color: white !important;
+      font-weight: 500;
+      padding: 8px 18px;
+      border-radius: 30px;
+      transition: 0.3s ease-in-out;
+      background-color: transparent;
+    }
 
-        /* Cambiar el color del enlace al pasar el mouse */
-        .navbar-nav .nav-link:hover {
-            color: #f0f0f0 !important;
-            /* Color más claro al hacer hover */
-        }
+    .navbar-nav .nav-item a:hover,
+    .navbar-nav .nav-item a.active {
+      background-color: #ffffff33;
+      color: #fff !important;
+    }
 
-        body {
-            background-color: #2C0926;
-        }
+    @media (max-width: 768px) {
+      .navbar-nav .nav-item a {
+        width: 100%;
+        text-align: center;
+      }
+    }
 
-        .container {
-            color: #119A79;
-        }
+    /* === ENCABEZADO === */
+    header {
+      background: linear-gradient(180deg, #6d105c 0%, #9b2a87 100%);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-radius: 0 0 30px 30px;
+      margin-bottom: 2rem;
+    }
 
-        /* Personalizar el navbar para que los botones sean anchos en pantallas pequeñas */
-        @media (max-width: 768px) {
-            .navbar-nav .nav-link {
-                width: 100%;
-                text-align: center;
-            }
-        }
-    </style>
-    <style>
-        /* Mostrar este div solo en modo vertical (portrait) */
-        .solo-portrait {
-            display: block;
-            background-color: lightblue;
-            padding: 20px;
-            text-align: center;
-        }
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
 
-        /* Mostrar este div solo en modo horizontal (landscape) */
-        .solo-landscape {
-            display: none;
-            /* Ocultar por defecto */
+    /* === CRONOGRAMA BOX === */
+    .cronograma {
+      background-color: #6d105c;
+      color: white;
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto 4rem auto;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
 
+    .evento-dia {
+      margin-bottom: 2rem;
+    }
 
-            text-align: center;
-        }
+    .evento-dia h2 {
+      font-size: 1.6rem;
+      color: #ffd8fa;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
 
-        /* Si la pantalla está en modo vertical */
-        @media (orientation: portrait) {
-            .solo-landscape {
-                display: none;
-            }
+    .evento-item {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      transition: background 0.2s;
+    }
 
-            .solo-portrait {
-                display: block;
-            }
-        }
+    .evento-item:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
 
-        /* Si la pantalla está en modo horizontal */
-        @media (orientation: landscape) {
-            .solo-landscape {
-                display: block;
-            }
+    .evento-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
 
-            .solo-portrait {
-                display: none;
-            }
+    .hora {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ffe1ff;
+      min-width: 90px;
+    }
 
+    .detalle {
+      flex: 1;
+    }
 
-        }
-    </style>
+    .detalle h5 {
+      margin: 0;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .detalle p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #f2d8f8;
+    }
+
+    .link {
+      color: #ffe1ff;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .evento-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .evento-item img {
+        width: 100%;
+        height: 200px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
-        <div class="container-fluid ">
-            <a class="navbar-brand" href="../index.html">
-                <img src="../imagenes/ferialogo.png" width="100px" alt="Expo Verde">
-                <!-- Cambia por la URL de tu logo -->
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a href="../paginas/Mapa.html">Emprendedores</a>
-                    </li>
+  <!-- === NAVBAR === -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand" href="#">
+        <img src="../imagenes/ferialogo.png" alt="Expo Verde" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+            
+          <li class="nav-item">
+            <a href="../Index.html">Inicio</a>
+          </li>
+          
+          <li class="nav-item">
+            <a href="./Mapa.html">Emprendedores</a>
+          </li>
+          <li class="nav-item">
+            <a href="./Eventos.html" class="active">Eventos</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Cafe.html">Cafeterias</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="../paginas/Eventos.html">Eventos</a>
-                    </li>
-                </ul>
-            </div>
+  <!-- === ENCABEZADO === -->
+  <header>
+    <h1>📅 Cronograma de Eventos</h1>
+    <p>Exposición Rural - Diciembre 8, de 9:00 a 22:00</p>
+  </header>
+
+  <!-- === CRONOGRAMA === -->
+  <main>
+    <div class="cronograma">
+
+      <section class="evento-dia">
+        <h2>🟣 Sábado 1 de noviembre</h2>
+
+        <div class="evento-item">
+          <img src="../imagenes/_yoga.jpg" alt="Clase de yoga">
+          <div class="hora">14:30</div>
+          <div class="detalle">
+            <h5>Clase de yoga</h5>
+            <p>A cargo de Carina Fernández. </p>
+          </div>
         </div>
-    </nav>
-    <object data="../imagenes/Eventos/inicio.svg" id="" width="100%" height="100%"></object>
-    <object data="../imagenes/Eventos/payasos.svg" id="payasos" width="100%" height="100%"></object>
-    <object data="../imagenes/Eventos/5pa2.svg" type="image/svg+xml" id="5pa2" width="100%" height="100%"></object>
-    <object data="../imagenes/Eventos/premios.svg" type="image/svg+xml" id="" width="100%" height="100%"></object>
-    <object data="../imagenes/Eventos/ultimo.svg" type="image/svg+xml" id="alphasvg" width="100%"
-        height="100%"></object>
 
-    </svg>
+        <div class="evento-item">
+          <img src="../imagenes/_jurado.jpeg" alt="Recorrido de jurados">
+          <div class="hora">18:00</div>
+          <div class="detalle">
+            <h5>Recorrido de jurados y autoridades</h5>
+            <p>Visita a los distintos stands.</p>
+          </div>
+        </div>
 
-    <script>
-        // Seleccionar el elemento del botón por su ID
-        var a = document.getElementById("alphasvg");
+        <div class="evento-item">
+          <img src="../imagenes/_folklore.jpeg" alt="El Folclore nos mueve">
+          <div class="hora">18:00</div>
+          <div class="detalle">
+            <h5>El Folclore nos mueve</h5>
+            <p>Taller en vivo a cargo de Andrea y Lucas.</p>
+          </div>
+        </div>
 
-        // It's important to add an load event listener to the object,
-        // as it will load the svg doc asynchronously
-        a.addEventListener("load", function () {
+        <div class="evento-item">
+          <img src="../imagenes/_sanchez.jpg" alt="Ricardo Sánchez y La Banda">
+          <div class="hora">19:30</div>
+          <div class="detalle">
+            <h5>Show musical: Ricardo Sánchez y La Banda</h5>
+          </div>
+        </div>
+      </section>
 
-            // get the inner DOM of alpha.svg
-            var svgDoc = a.contentDocument;
-            // get the inner element by id
+      <section class="evento-dia">
+        <h2>🟣 Domingo 2 de noviembre</h2>
 
-            var delta = svgDoc.getElementById("BotonTamo");
-            // add behaviour
-            delta.addEventListener("click", function () {
-                window.open('https://www.youtube.com/@TamoReady-cv9rb', '_blank');
-            }, false);
-        }, false);
-        var b = document.getElementById("5pa2");
+        <div class="evento-item">
+          <img src="../imagenes/_cafe.jpg" alt="Festival de Café">
+          <div class="hora">9:30</div>
+          <div class="detalle">
+            <h5>Festival de Café</h5>
+            <p>En el Salón de Aves.</p>
+          </div>
+        </div>
 
-        // It's important to add an load event listener to the object,
-        // as it will load the svg doc asynchronously
-        b.addEventListener("load", function () {
+        <div class="evento-item">
+          <img src="../imagenes/_soul.jpg" alt="Body & Soul">
+          <div class="hora">17:30</div>
+          <div class="detalle">
+            <h5>Show musical “Body & Soul”</h5>
+          </div>
+        </div>
 
-            // get the inner DOM of alpha.svg
-            var svgDoc = b.contentDocument;
-            // get the inner element by id
+        <div class="evento-item">
+          <img src="../imagenes/_premio.jpg" alt="Premiación">
+          <div class="hora">18:30</div>
+          <div class="detalle">
+            <h5>Entrega de premios</h5>
+            <p>A los stands mejor calificados.</p>
+          </div>
+        </div>
 
-            var delta = svgDoc.getElementById("5pa2");
-            // add behaviour
-            delta.addEventListener("click", function () {
+        <div class="evento-item">
+          <img src="../imagenes/_5pa2.jpg" alt="5pa2">
+          <div class="hora">18:45</div>
+          <div class="detalle">
+            <h5>Show musical “5pa2”</h5>
+          </div>
+        </div>
 
-                window.open('https://www.instagram.com/5pa2.ok/?igsh=MWt6NmU5ZHgzdGN3Zw%3D%3D', '_blank');
+        <div class="evento-item">
+          <img src="../imagenes/_fuegosart.jpg" alt="Cierre">
+          <div class="hora">20:30</div>
+          <div class="detalle">
+            <h5>Cierre del evento</h5>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
 
-            }, false);
-        }, false);
-        var c = document.getElementById("payasos");
-
-        // It's important to add an load event listener to the object,
-        // as it will load the svg doc asynchronously
-        c.addEventListener("load", function () {
-
-            // get the inner DOM of alpha.svg
-            var svgDoc = c.contentDocument;
-            // get the inner element by id
-
-            var delta = svgDoc.getElementById("Payasitos");
-            // add behaviour
-            delta.addEventListener("click", function () {
-                window.open('https://www.instagram.com/lamaletacachivaches/', '_blank');
-            }, false);
-        }, false);
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
-</html>l
+</html>
