@@ -174,17 +174,37 @@
       color: #999;
     }
 
+    /* --- BLOQUE CSS MÓVIL CORREGIDO --- */
     @media (max-width: 900px) {
       .bento-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        height: auto;
+        /* 1. Lo forzamos a 1 sola columna */
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto; /* Dejamos que las filas crezcan solas */
+        height: auto; /* La altura ya no es fija */
+        padding: 1rem; /* Menos padding en móvil */
       }
 
+      /* 2. Ocultamos el carrusel en móvil */
       .carousel-box {
+        display: none;
+      }
+
+      /* 3. Forzamos a que TODOS los hijos ocupen 1 columna */
+      .bento-box {
         grid-column: span 1;
-        grid-row: auto;
-        height: 300px;
+      }
+      
+      /* 4. Arreglamos el 'clima' para que se apile verticalmente */
+      .clima {
+        flex-direction: column;
+        gap: 1.5rem; /* Espacio entre los días */
+      }
+
+      /* 5. Damos altura fija a las cajas con imagen de fondo */
+      .emprendedores,
+      .cafes,
+      .cronograma {
+        height: 220px;
       }
     }
   </style>
@@ -214,7 +234,8 @@
     <div class="bento-box fecha">
       <h2>1 y 2 de Noviembre</h2>
       <p>Exposición Rural - General Pico</p>
-      <p><small>9:00 a 22:00 hs</small></p>
+      <p><small>Sabado 14:30 a 19:30 hs</small></p>
+      <p><small>Domingo 9:30 a 20:30 hs</small></p>
     </div>
 
     <div class="bento-box clima">
@@ -277,7 +298,7 @@
       } catch {
         box.style.background = '#f6f6f6';
         box.style.border = '2px dashed #ddd';
-        box.style.color = '#aaa';
+        box.style.color = '#999';
       }
     });
     */
