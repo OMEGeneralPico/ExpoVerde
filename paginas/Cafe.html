@@ -1,26 +1,338 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-custom">
-    <div class="container-fluid ">
-        <a class="navbar-brand" href="#">
-            <img src="./imagenes/ferialogo.png" width="100px" alt="Expo Verde">
-            <!-- Cambia por la URL de tu logo -->
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a href="./paginas/Mapa.html">Emprendedores </a>
-                </li>
+<!DOCTYPE html>
+<html lang="es">
 
-                <li class="nav-item">
-                    <a class="" href="./paginas/Eventos.html"> Eventos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="" href="./paginas/Cafe.html"> Cafeterias</a>
-                </li>
-            </ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafeterías - Expo Verde 2025</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        :root {
+            --color-primary: #6d105c;
+            --color-secondary: #9b2a87;
+            --color-light: #f8f9fa;
+            --color-dark: #333;
+            --gap-size: 1rem;
+        }
+
+        body {
+            background-color: var(--color-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* === NAVBAR === */
+        .bg-custom {
+            background-color: var(--color-primary) !important;
+        }
+
+        .navbar-brand img {
+            width: 100px;
+            height: auto;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+        
+        .navbar-nav .nav-item a:hover {
+            background-color: #ffffff33;
+            border-radius: 30px;
+        }
+
+        /* === GRID CONTAINER (BENTO) === */
+        .bento-container {
+            flex-grow: 1; /* Ocupa el espacio restante en la pantalla */
+            display: grid;
+            padding: var(--gap-size);
+            gap: var(--gap-size);
+            
+            /* --- CORRECCIÓN DE LA GRILLA --- */
+            /* Definimos 3 columnas (flaca, ancha, flaca) y 3 filas (normal, ancha, normal) */
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: 1.5fr 2fr 1.5fr;
+        }
+
+        .bento-box {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            /* padding: 1rem; */ /* Lo movemos al contenido */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+            
+            /* --- AÑADIR ESTO --- */
+            position: relative; /* Necesario para la superposición */
+            background-size: cover;
+            background-position: center;
+            color: white; /* Texto blanco por defecto */
+        }
+
+        /* --- AÑADIR ESTO --- */
+        /* Superposición oscura (overlay) */
+        .bento-box::before {
+            content: "";
+            position: absolute;
+            inset: 0; /* Cubre toda la caja */
+            background-color: rgba(0, 0, 0, 0.5); /* Oscuro semitransparente */
+            z-index: 1; /* Detrás del contenido */
+            border-radius: 16px; /* Para que coincida con la caja */
+        }
+        
+        /* --- AÑADIR ESTO --- */
+        /* Contenedor para el contenido */
+        .box-content {
+            position: relative;
+            z-index: 2; /* Encima de la superposición */
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%; /* Ocupa toda la caja */
+        }
+
+        .bento-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+/* --- AÑADIR ESTO --- */
+
+        /* Box 1: Alma Cupcake */
+        .box-1 {
+            background-image: url('../imagenes/alma.jpg');
+        }
+
+        /* Box 2: Reloj de bolsillo */
+        .box-2 {
+            background-image: url('../imagenes/reloj.jpg');
+        }
+
+        /* Box 3: Sin Migajas */
+        .box-3 {
+            background-image: url('../imagenes/migajas.jpg');
+        }
+
+        /* Box 4: Chilito Café */
+        .box-4 {
+            background-image: url('../imagenes/chilito.jpeg');
+        }
+
+        /* Box 5: Faruolo D’ Boccardo */
+        .box-5 {
+            background-image: url('../imagenes/boucard.jpg');
+        }
+        /* === MAPEO DE LA GRILLA (Según tu imagen) === */
+        
+        /* Box 1: Alma Cupcake (Superior, columnas 1 y 2) */
+        .box-1 {
+            grid-column: 1 / 3; 
+            grid-row: 1 / 2;
+        }
+
+        /* Box 2: Reloj de bolsillo (Izquierda, filas 2 y 3) */
+        .box-2 {
+            grid-column: 1 / 2;
+            grid-row: 2 / 4;
+        }
+
+        /* Box 3: Sin Migajas (Centro) */
+        .box-3 {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+        }
+
+        /* Box 4: Chilito Café (Derecha, se expande 3 filas) */
+        .box-4 {
+            grid-column: 3 / 4;
+            grid-row: 1 / 4; /* <-- Ocupa las 3 filas */
+        }
+
+        /* Box 5: Faruolo D’ Boccardo (Inferior, columna 2) */
+        .box-5 {
+            grid-column: 2 / 3; 
+            grid-row: 3 / 4; 
+        }
+
+        /* Estilos de Contenido (Sin cambios) */
+       /* --- MODIFICAR ESTO --- */
+       .box-title {
+            /* color: var(--color-primary); */ /* Quitar esto */
+            color: white; /* Añadir esto */
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .box-category {
+            /* color: var(--color-secondary); */ /* Quitar esto */
+            color: #f0f0f0; /* Un blanco un poco más suave */
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .box-description {
+            font-size: 0.95rem;
+            /* color: var(--color-dark); */ /* Quitar esto */
+            color: white; /* Añadir esto */
+            flex-grow: 1;
+        }
+        
+        /* --- MODIFICAR ESTO --- */
+        .contact-btn {
+            /* background-color: var(--color-primary); */ /* Quitar esto */
+            background-color: rgba(255, 255, 255, 0.2); /* Fondo blanco transparente */
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            /* ...el resto igual... */
+        }
+
+        .contact-btn:hover {
+            background-color: rgba(255, 255, 255, 0.4); /* Más opaco al pasar el mouse */
+            color: white;
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--color-light);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contact-btn {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+
+        .contact-btn:hover {
+            background-color: var(--color-secondary);
+            color: white;
+        }
+
+        /* Ajustes para Móviles (Columna única) */
+        @media (max-width: 992px) {
+            .bento-container {
+                grid-template-columns: 1fr; /* Columna única */
+                grid-template-rows: auto; 
+                gap: 1rem; 
+            }
+
+            /* Resetea la grilla para que fluyan en orden */
+            .bento-box {
+                grid-column: 1 / 2 !important;
+                grid-row: auto !important;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../imagenes/ferialogo.png" alt="Expo Verde">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="../index.html" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="./Mapa.html" class="nav-link">Emprendedores</a></li>
+                    <li class="nav-item"><a href="./Eventos.html" class="nav-link">Eventos</a></li>
+                    <li class="nav-item"><a href="./Cafe.html" class="nav-link active" aria-current="page">Cafeterías</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bento-container">
+        
+        <div class="bento-box box-1"><div class="box-content">
+            <div>
+                <div class="box-title">Alma Cupcake</div>
+                <div class="box-category">Productos Keto y Tradicionales</div>
+                <div class="box-description">Realizamos productos keto y tradicionales. Tenemos venta mayorista y minorista. Productos Keto sin azúcar y sin harinas.</div>
+            </div>
+            <div class="contact-info">
+                <a href="https://www.instagram.com/_almacupcake" target="_blank" class="contact-btn"><i class="fab fa-instagram me-1"></i> @_almacupcake</a>
+                <a href="tel:2302601985" class="contact-btn"><i class="fas fa-phone me-1"></i> 2302-601985</a>
+                <a href="mailto:karensanchezkz733@gmail.com" class="contact-btn"><i class="fas fa-envelope me-1"></i> Email</a>
+            </div>
         </div>
     </div>
-</nav>
+        <div class="bento-box box-2"><div class="box-content">
+            <div>
+                <div class="box-title">Reloj de bolsillo</div>
+                <div class="box-category">Cafetería / Bar</div>
+                <div class="box-description">Ofrecemos Café, licuados, gaseosas/aguas. Sandwich/panchos y dulces como alfajores, brownie, etc.</div>
+            </div>
+            <div class="contact-info">
+                <a href="https://www.instagram.com/Reloj de bolsillo oficial" target="_blank" class="contact-btn"><i class="fab fa-instagram me-1"></i> @oficial</a>
+                <a href="tel:2302304678" class="contact-btn"><i class="fas fa-phone me-1"></i> 2302-304678</a>
+            </div>
+        </div>
+    </div>
+        <div class="bento-box box-3"><div class="box-content">
+            <div>
+                <div class="box-title">Sin Migajas</div>
+                <div class="box-category">Restobar Sin TACC (Cafetería y Merienda)</div>
+                <div class="box-description">Un restobar sin tacc, especializado en cafetería y merienda.</div>
+            </div>
+            <div class="contact-info">
+                <a href="https://www.instagram.com/sinmigajas_" target="_blank" class="contact-btn"><i class="fab fa-instagram me-1"></i> @sinmigajas_</a>
+                <a href="tel:2302212102" class="contact-btn"><i class="fas fa-phone me-1"></i> 2302-212102</a>
+                <a href="mailto:mercedeslivano@gmail.com" class="contact-btn"><i class="fas fa-envelope me-1"></i> Email</a>
+            </div>
+        </div>
+    </div>
+        <div class="bento-box box-4"><div class="box-content">
+            <div>
+                <div class="box-title">Chilito Café y Pastelería</div>
+                <div class="box-category">Cafetería de Especialidad</div>
+                <div class="box-description">Café, cafés fríos, productos de panadería y pastelería, sandwichería.</div>
+            </div>
+            <div class="contact-info">
+                <a href="https://www.instagram.com/#chilitopasteleria" target="_blank" class="contact-btn"><i class="fab fa-instagram me-1"></i> #chilitopasteleria</a>
+                <a href="tel:2392313311" class="contact-btn"><i class="fas fa-phone me-1"></i> 2392-313311</a>
+            </div>
+        </div>
+    </div>
+        <div class="bento-box box-5"><div class="box-content">
+            <div>
+                <div class="box-title">Faruolo D’ Boccardo Sin Gluten</div>
+                <div class="box-category">Establecimiento Sin Gluten, Azúcar y Lactosa</div>
+                <div class="box-description">Amplio catálogo sin tacc con opciones dulces y saladas: Cuadrados de limón, porciones de budín (con y sin azúcar), alfajores, chipá caliente, scones de queso, crumbl cookies.</div>
+            </div>
+            <div class="contact-info">
+                <a href="https://www.instagram.com/@faruolo.pasteleria" target="_blank" class="contact-btn"><i class="fab fa-instagram me-1"></i> @faruolo.pasteleria</a>
+                <a href="tel:2302342478" class="contact-btn"><i class="fas fa-phone me-1"></i> 2302-342478</a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
