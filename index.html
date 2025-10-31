@@ -239,17 +239,17 @@
     </div>
 
     <div class="bento-box clima">
-      <div class="clima-dia">
-        <div class="clima-icon">☀️</div>
-        <h4>Sábado</h4>
-        <p>23°C - Soleado</p>
+        <div class="clima-dia" id="clima-sabado">
+          <div class="clima-icon">🔄</div>
+          <h4>Sábado</h4>
+          <p>Cargando pronóstico...</p>
+        </div>
+        <div class="clima-dia" id="clima-domingo">
+          <div class="clima-icon">🔄</div>
+          <h4>Domingo</h4>
+          <p>Cargando pronóstico...</p>
+        </div>
       </div>
-      <div class="clima-dia">
-        <div class="clima-icon">🌤️</div>
-        <h4>Domingo</h4>
-        <p>25°C - Parcialmente nublado</p>
-      </div>
-    </div>
 
     <div class="bento-box carousel-box">
       <div id="carouselExampleIndicators" class="carousel slide w-100 h-100" data-bs-ride="carousel">
@@ -284,24 +284,77 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Verifica si las imágenes existen; si no, aplica el cuadrado en blanco
-    // **NOTA**: La URL dentro de fetch también debe ser corregida si usas esta verificación.
-    // En entornos reales, la función getComputedStyle().backgroundImage ya resuelve la ruta.
-    // Si tienes problemas en GitHub Pages, es posible que debas cambiar la lógica de 'url'
-    /*
-    document.querySelectorAll('.bento-box[data-img="auto"]').forEach(async box => {
-      const style = getComputedStyle(box).backgroundImage;
-      const url = style.slice(5, -2); // Esto obtiene la URL con la ruta corregida 'imagenes/...'
-      try {
-        const res = await fetch(url, { method: 'HEAD' });
-        if (!res.ok) throw new Error();
-      } catch {
-        box.style.background = '#f6f6f6';
-        box.style.border = '2px dashed #ddd';
-        box.style.color = '#999';
-      }
+    // Se ejecuta cuando la página se ha cargado
+    document.addEventListener("DOMContentLoaded", () => {
+      // Coordenadas de General Pico
+      const lat = -35.6566;
+      const lon = -63.7568;
+      
+      // Pedimos el pronóstico para los próximos 3 días (Hoy, Sábado, Domingo)
+      // (Asumiendo que hoy es Viernes 31 de Octubre)
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=America/Argentina/Buenos_Aires&forecast_days=3`;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          // El API nos da 3 días. El evento es 1 y 2 de Nov, Sábado y Domingo.
+          // Necesitamos los datos del índice [1] (Sábado) y [2] (Domingo).
+          
+          // Datos para Sábado (índice 1)
+          const sabadoData = {
+            code: data.daily.weather_code[1],
+            max: Math.round(data.daily.temperature_2m_max[1]),
+            min: Math.round(data.daily.temperature_2m_min[1])
+          };
+          
+          // Datos para Domingo (índice 2)
+          const domingoData = {
+            code: data.daily.weather_code[2],
+            max: Math.round(data.daily.temperature_2m_max[2]),
+            min: Math.round(data.daily.temperature_2m_min[2])
+          };
+
+          // Actualizamos el HTML
+          actualizarCajaClima("clima-sabado", sabadoData);
+          actualizarCajaClima("clima-domingo", domingoData);
+        })
+        .catch(error => {
+          console.error("Error al cargar el clima:", error);
+          // Si falla, muestra un error
+          document.getElementById("clima-sabado").querySelector("p").textContent = "Error al cargar";
+          document.getElementById("clima-domingo").querySelector("p").textContent = "Error al cargar";
+        });
     });
-    */
+
+    /**
+     * Actualiza una caja del DOM con los datos del clima
+     */
+    function actualizarCajaClima(id, data) {
+      const elemento = document.getElementById(id);
+      if (!elemento) return;
+
+      const infoClima = getWeatherInfo(data.code);
+      
+      elemento.querySelector(".clima-icon").textContent = infoClima.icon;
+      elemento.querySelector("p").textContent = `${data.min}°C - ${data.max}°C / ${infoClima.desc}`;
+    }
+
+    /**
+     * Convierte los códigos de Open-Meteo a íconos y descripciones
+     */
+    function getWeatherInfo(code) {
+      if (code === 0) return { icon: '☀️', desc: 'Soleado' };
+      if (code === 1) return { icon: '🌤️', desc: 'Principalmente despejado' };
+      if (code === 2) return { icon: '🌥️', desc: 'Parcialmente nublado' };
+      if (code === 3) return { icon: '☁️', desc: 'Nublado' };
+      if (code === 45 || code === 48) return { icon: '🌫️', desc: 'Niebla' };
+      if (code >= 51 && code <= 57) return { icon: '🌧️', desc: 'Llovizna' };
+      if (code >= 61 && code <= 67) return { icon: '🌧️', desc: 'Lluvia' };
+      if (code >= 80 && code <= 82) return { icon: '🌦️', desc: 'Chaparrón' };
+      if (code >= 95 && code <= 99) return { icon: '⛈️', desc: 'Tormenta' };
+      
+      return { icon: '☁️', desc: 'Nublado' }; // Default
+    }
   </script>
 </body>
 </html>
